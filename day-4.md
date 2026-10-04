@@ -4,9 +4,11 @@
 
 **Kapil’s practice · reviewed 4 October 2026 · Tcl 8.6.18**
 
-Your new console work covers creating and nesting lists, concatenation, repetition, length, indexing, assignment, editing, searching, sorting, and membership. The course places these topics in **Day 4: Lists**, through **in and ni(not in)**. The next lecture is **foreach**. This day is still in progress.
+Your Day 4 practice now reaches **regsub**. This page covers lists, membership, `foreach`, string splitting, regular-expression matching, captured fields, and substitution. You report that the Day 4 lessons are done through `regsub`; **Assignments 17–22 remain**. Assignment 17 has preliminary list experiments, without a completed answer.
 
 The [original pasted session](internal/sources/console-session-2026-10-04-lists.txt) is preserved. Its beginning repeats your Day 2 indexing and Day 3 expression practice; those reviews remain on their existing pages. The new list practice starts at `set x 12`. Original attempts below are labelled **Your session**; corrected examples and their outputs were checked locally. A correction is not a claim that you already executed it.
+
+The [second Day 4 session](internal/sources/console-session-2026-10-04-regexp-regsub.txt) continues with `foreach` and reaches `regsub`, then records your early Assignment 17 experiments. Both transcripts are preserved. Starting values omitted from a transcript are identified when reconstructed for a runnable example.
 
 ## Contents
 
@@ -22,7 +24,15 @@ The [original pasted session](internal/sources/console-session-2026-10-04-lists.
 - [Change an element with lset](#change-an-element-with-lset)
 - [Search for indices or matching values](#search-for-indices-or-matching-values)
 - [Sort text, integers, and real numbers](#sort-text-integers-and-real-numbers)
+  - [Assignment 17: Preliminary capacitance-list practice](#assignment-17-preliminary-capacitance-list-practice)
 - [Test membership and save the result](#test-membership-and-save-the-result)
+- [Iterate over lists with foreach](#iterate-over-lists-with-foreach)
+- [Split a string at delimiter characters](#split-a-string-at-delimiter-characters)
+- [Choose the result form of regexp](#choose-the-result-form-of-regexp)
+- [Trace regular-expression patterns](#trace-regular-expression-patterns)
+- [Capture a vector range and port name](#capture-a-vector-range-and-port-name)
+- [Extract names and traverse captured fields](#extract-names-and-traverse-captured-fields)
+- [Replace matches with regsub](#replace-matches-with-regsub)
 - [Names, values, and changed lists](#names-values-and-changed-lists)
 - [Assignment progress and next lesson](#assignment-progress-and-next-lesson)
 - [Complete practice script](#complete-practice-script)
@@ -40,8 +50,13 @@ The [original pasted session](internal/sources/console-session-2026-10-04-lists.
 | `lappend`, `linsert`, and `lreplace` | Use the name with `lappend`; save the returned lists from the other two commands |
 | `lset` and `lsearch` | Your final commands and search results are correct |
 | `lsort` | Your corrected text, integer, and real sorts are correct; always supply the input list |
-| `in` and `ni` | Your direct results `1` and `0` are correct; saving the result remains unfinished at the end of the session |
-| Day 4 assignments | No attempt at Assignments 17–22 appears in this session |
+| `in` and `ni` | Your direct results `1` and `0` are correct; the first session’s unfinished saved expression is reviewed below |
+| `foreach` | The unequal-list result is correct; the missing space before the body brace is corrected |
+| `split` | Your results are correct; adjacent delimiter characters explain the empty elements |
+| `regexp` | Your final option combinations and patterns work; match counts, index pairs, and captured lists are explained below |
+| Verilog-text examples | Your final captures work for the pasted declarations; use full `regexp` spelling in saved scripts |
+| `regsub` | Your replacement results are correct; save the returned text or inspect the destination variable |
+| Day 4 assignments | 17 has preliminary experiments and remains unfinished; 18–22 remain |
 
 [← Back to index](README.md#day-4) · [Day contents](#contents)
 
@@ -477,6 +492,37 @@ expected floating-point number but got "-increasing"
 
 [← Back to index](README.md#day-4) · [Day contents](#contents)
 
+### Assignment 17: Preliminary capacitance-list practice
+
+**Status: remains unfinished.** The course question asks for the number of **unique** capacitance values. Its values are `12, 8, 15, 7, 8, 10, 12, 8, 5` femtofarads. Your second session records these initial experiments:
+
+```text
+% set caplist [list 12 8 15 7 8 12 8 5]
+12 8 15 7 8 12 8 5
+% llength caplist
+1
+% llength $caplist
+8
+% set caplist1 [list 12 15 18 20 12 18]
+12 15 18 20 12 18
+% lreverse $caplist
+5 8 12 8 7 15 8 12
+% lreverse $caplist1
+18 12 20 18 15 12
+% lindex $caplist1 2
+18
+% set lreverse $caplist1
+12 15 18 20 12 18
+```
+
+Your `caplist` omits the question’s `10`, so it has eight entries. `llength $caplist` counts every entry, including repeated values; this does not yet answer the distinct-value question. `llength caplist` counts the literal one-word name. The second list is a separate experiment rather than the question’s data.
+
+`lreverse` reverses element order without removing duplicates and returns the reversed list. `lindex $caplist1 2` correctly reads its third element. `set lreverse $caplist1` creates a variable named `lreverse`; it does not call the command of that name. Correct the input data before continuing the assignment. No completed numeric answer is recorded here.
+
+Related lessons: [Sort text, integers, and real numbers](#sort-text-integers-and-real-numbers), [Repeat elements and count a list](#repeat-elements-and-count-a-list), and [Read nested indices with lindex](#read-nested-indices-with-lindex).
+
+[← Back to index](README.md#day-4) · [Day contents](#contents)
+
 ## Test membership and save the result
 
 Your direct tests are correct:
@@ -519,9 +565,9 @@ stored text="a" in $lista
 
 In the correct form, the space separates the command name `expr` from its argument. The braces pass the expression as one word and let `expr` interpret its quoted string and variable. The square brackets run that command and pass its result to `set`.
 
-### The unfinished command at the end
+### The unfinished command in your first session
 
-Your session ends with this input, beginning with an unclosed brace:
+Your first list session ended with this input, beginning with an unclosed brace:
 
 ```text
 % set answer [expr {"a" in $lista]
@@ -550,7 +596,413 @@ Output:
 1
 ```
 
-This successful saved result was verified locally; it is not visible as a completed command in your pasted session.
+This successful saved result was verified locally; it is not visible as a completed command in the first pasted session.
+
+[← Back to index](README.md#day-4) · [Day contents](#contents)
+
+## Iterate over lists with foreach
+
+Your first loop printed `1 ab`, `2 cd`, `3 ef`, and `4 gh`. The pasted session does not include the initial list assignments, so the starting values below are reconstructed from those rows. Your second loop explicitly shortened `listb` to `ab ef gh`.
+
+```tcl
+set lista [list 1 2 3 4]
+set listb [list ab cd ef gh]
+foreach i $lista j $listb {
+    puts "$i $j"
+}
+
+set listb [list ab ef gh]
+foreach i $lista j $listb {
+    puts "$i |$j|"
+}
+```
+
+Output:
+
+```text
+1 ab
+2 cd
+3 ef
+4 gh
+1 |ab|
+2 |ef|
+3 |gh|
+4 ||
+```
+
+The loop takes one element from each list per iteration. It continues until both lists are exhausted. On the fourth iteration, `lista` still provides `4`, while the shorter `listb` provides an empty string for `j`; the vertical bars expose that empty value. This matches your final row containing only `4`. See [`foreach`](https://www.tcl-lang.org/man/tcl8.6/TclCmd/foreach.htm).
+
+Your later `foreach i $listb{` omitted the space before the body brace. Tcl needs separate arguments for the variable name, list value, and body script. Use `foreach i $listb { ... }`, with a space before `{`. The body is a script that executes once per iteration; `foreach` itself returns an empty string.
+
+[← Back to index](README.md#day-4) · [Day contents](#contents)
+
+## Split a string at delimiter characters
+
+All your `split` results are correct. The second argument is a **set of delimiter characters**: `"ab"` means split at every `a` or `b`, rather than at the two-character substring `ab`. See [`split`](https://www.tcl-lang.org/man/tcl8.6/TclCmd/split.htm).
+
+```tcl
+set str "Hello"
+puts "split at e=[split $str e]"
+puts "parts at e=[llength [split $str e]]"
+puts "split at l=[split $str l]"
+set str "abcdabcdabcdabab"
+set parts [split $str "ab"]
+puts "split at a or b=$parts"
+puts "part count=[llength $parts]"
+```
+
+Output:
+
+```text
+split at e=H llo
+parts at e=2
+split at l=He {} o
+split at a or b={} {} cd {} cd {} cd {} {} {} {}
+part count=11
+```
+
+The two adjacent `l` characters in `Hello` leave an empty field between them, displayed as `{}`. In the longer string, delimiters at the beginning, adjacent delimiters, and the final delimiter also produce empty fields. Those empty strings are real list elements and contribute to `llength`.
+
+[← Back to index](README.md#day-4) · [Day contents](#contents)
+
+## Choose the result form of regexp
+
+`regexp` takes a pattern and an input string. Without `-inline`, its return value reports whether a match exists, or how many matches were found with `-all`. Optional names after the input receive matching text. With `-inline`, the matching information is returned as a list and those destination names must be omitted. See [`regexp`](https://www.tcl-lang.org/man/tcl8.6/TclCmd/regexp.htm).
+
+```tcl
+puts "exists=[regexp {[ho]} hello match]"
+puts "first match=$match"
+puts "count=[regexp -all {[ho]} hello match]"
+puts "last match=$match"
+puts "matching text=[regexp -all -inline {[ho]} hello]"
+puts "index pairs=[regexp -all -inline -indices {[ho]} hello]"
+puts "indices mode count=[regexp -all -indices {[ho]} hello]"
+puts "case sensitive=[regexp {h} Hello]"
+puts "case insensitive=[regexp -nocase {h} Hello]"
+puts "class count=[regexp -all -nocase {[hel]} Hello]"
+puts "class matches=[regexp -all -inline -nocase {[hel]} Hello]"
+```
+
+Output:
+
+```text
+exists=1
+first match=h
+count=2
+last match=o
+matching text=h o
+index pairs={0 0} {4 4}
+indices mode count=2
+case sensitive=0
+case insensitive=1
+class count=4
+class matches=H e l l
+```
+
+`-all` with a named match variable leaves that variable holding the **last** match, which is why your `match` changed from `h` to `o`. An index pair is the inclusive start and end character index: both are `0` for `h` and both are `4` for `o`. `-indices` changes the matching information, not the ordinary return value; without `-inline` or destination variables, your command still returns the count `2`.
+
+| Your attempt | Explanation and correction |
+| --- | --- |
+| `-all` on its own | An option belongs to a command: `regexp -all pattern input` |
+| `regexp {[ho]one one lll}` | Only the pattern was supplied; the input string is missing |
+| `regexp -all -inline {[ho]} "hello" match` | Remove `match`, or remove `-inline`; these result forms cannot be combined |
+| `regexp -all -inline -indices{[ho]} "hello"` | Insert a space after `-indices`; the brace was not starting a separate braced word, so Tcl tried to execute `[ho]` |
+| `regexp -all -inline "Hello"` | Still needs both a pattern and input string |
+
+An ordinary test with no match returns `0`. An inline search with no match returns an empty list, so your `regexp -all -inline {h} "Hello"` displayed nothing. Adding `-nocase` returns the actual matched input character `H`.
+
+[← Back to index](README.md#day-4) · [Day contents](#contents)
+
+## Trace regular-expression patterns
+
+These results differ from the glob patterns in `lsearch`. In a regular expression, `*`, `+`, and `?` quantify the preceding atom. Bracket expressions select one character, and parentheses can capture a matched field. The [Tcl regular-expression syntax reference](https://www.tcl-lang.org/man/tcl8.6/TclCmd/re_syntax.htm) defines these forms.
+
+### Literal text, classes, alternatives, and spaces
+
+`{hel}` matches the sequence `hel`; `{[hel]}` matches one character from `h`, `e`, or `l`. Your `{[hello]}` is also a one-character class; repeated letters inside the class do not make a word match. The `-nocase -all` class test finds `H`, `e`, `l`, and `l` in `Hello`.
+
+```tcl
+puts "word=[regexp -all -inline -nocase {hel} Hello]"
+puts "with spaces=[regexp -all -nocase {hel | lo } Hello]"
+puts "alternatives=[regexp -all -inline -nocase {hel|lo} Hello]"
+puts "dot=[regexp -all -inline {h.} hello]"
+puts "literal dot=[regexp {3\.14} 3.14]"
+puts "digit exists=[regexp {\d} 123]"
+puts "first digit=[regexp -inline {\d} 123]"
+```
+
+Output:
+
+```text
+word=Hel
+with spaces=0
+alternatives=Hel lo
+dot=he
+literal dot=1
+digit exists=1
+first digit=1
+```
+
+In `{hel | lo }`, the spaces are part of the alternatives under the options you used. They require whitespace that `Hello` does not contain. Removing them gives `{hel|lo}` and two non-overlapping matches. The dot in `{h.}` matches a character after `h`; `\.` instead means a literal dot. `\d` matches a digit, so your inline result `1` is the **first matched character**, while the ordinary result `1` is a successful-match flag.
+
+### Quantifiers and empty matches
+
+```tcl
+puts "h star=[regexp -all -inline {h*} hello]"
+puts "a star=[regexp -all -inline {a*} abababaaa]"
+puts "optional h in hello=[regexp -all -inline {h?l} hello]"
+puts "optional h in hlolo=[regexp -all -inline {h?l} hlolo]"
+puts "one or more l=[regexp -all -inline {hl+} hlolohlhl]"
+puts "exactly three l=[regexp -all -inline {l{3}} ollelllla]"
+puts "at least two l=[regexp -all -inline {l{2,}} ollelllla]"
+puts "two to three l=[regexp -all -inline {l{2,3}} ollelllla]"
+```
+
+Output:
+
+```text
+h star=h {} {} {} {}
+a star=a {} a {} a {} aaa
+optional h in hello=l l
+optional h in hlolo=hl l
+one or more l=hl hl hl
+exactly three l=lll
+at least two l=ll llll
+two to three l=ll lll
+```
+
+| Pattern | What is required |
+| --- | --- |
+| `h*` | Zero or more `h` characters; the empty string is allowed |
+| `h?l` | Zero or one `h`, followed by a required `l` |
+| `hl+` | One `h`, followed by one or more `l` characters |
+| `l{3}` | Exactly three consecutive `l` characters |
+| `l{2,}` | At least two consecutive `l` characters |
+| `l{2,3}` | Two or three consecutive `l` characters |
+
+The `{}` entries returned for `h*` and `a*` are empty matches, not missing data. For your `hello` test, Tcl finds `h` at index `0`, then a zero-length match at each of indices `1`, `2`, `3`, and `4`. The matcher advances after an empty match so the search makes progress. These exact results were reproduced in Tcl 8.6.18.
+
+`h?l` can match a lone `l`, so it finds the two `l` characters in `hello`. For `ollelllla`, the first run contains two `l` characters and the later run contains four. `l{3}` can use only the later run; `l{2,3}` takes two from the first and three from the later run. The remaining single `l` is too short for another match. The quantifiers in your examples prefer the longest permitted match at a matching position.
+
+### Start and end anchors
+
+```tcl
+puts "at start=[regexp -all -inline {^hel} helimkapil]"
+puts "at end=[regexp -all -inline {hel$} helimkapilhel]"
+```
+
+Output:
+
+```text
+at start=hel
+at end=hel
+```
+
+Under your ordinary matching options, `^` requires the start of the input and `$` requires its end. They do not consume characters. The second command selects the final `hel`, rather than the identical text at the beginning.
+
+[← Back to index](README.md#day-4) · [Day contents](#contents)
+
+## Capture a vector range and port name
+
+**Your session:**
+
+```text
+% set input [7:0] datain
+invalid command name "7:0"
+% set input "[7:0] datain"
+invalid command name "7:0"
+% set input {[7:0] datain}
+[7:0] datain
+% regexp -inline -all {\[(\d+):(\d+)\]\s(\w+)} $input
+{[7:0] datain} 7 0 datain
+```
+
+Double quotes allow Tcl command substitution, so `[7:0]` tries to execute a command named `7:0`. Bracing the input stores those brackets literally. The braced regex also reaches the regex engine without Tcl first interpreting its brackets or backslashes.
+
+Your final pattern is correct for this input. It captures the upper index, lower index, and port name after the complete match:
+
+```tcl
+set input {[7:0] datain}
+set fields [regexp -inline -all {\[(\d+):(\d+)\]\s(\w+)} $input]
+puts "inline fields=$fields"
+set found [regexp {\[(\d+):(\d+)\]\s(\w+)} $input match size1 size2 port]
+puts "found=$found"
+puts "whole match=$match"
+puts "upper=$size1; lower=$size2; port=$port"
+```
+
+Output:
+
+```text
+inline fields={[7:0] datain} 7 0 datain
+found=1
+whole match=[7:0] datain
+upper=7; lower=0; port=datain
+```
+
+| Pattern component | Meaning and captured value |
+| --- | --- |
+| `\[` | Literal opening bracket |
+| `(\d+)` | Capture one or more digits: group 1 is `7` |
+| `:` | Literal colon |
+| `(\d+)` | Capture one or more digits: group 2 is `0` |
+| `\]` | Literal closing bracket |
+| `\s` | One whitespace character between range and name |
+| `(\w+)` | Capture one or more word characters: group 3 is `datain` |
+
+Your names `size1` and `size2` receive the range indices. `[7:0]` spans eight bits, so `size1=7` is not a seven-bit width. This distinction matters when using captured numbers in a calculation. The named form takes variable names after the input; the inline form returns a list instead. See [`regexp` capture semantics](https://www.tcl-lang.org/man/tcl8.6/TclCmd/regexp.htm) and [regex escapes](https://www.tcl-lang.org/man/tcl8.6/TclCmd/re_syntax.htm).
+
+Your earlier pattern contained extra literal spaces, `(w+)` without the backslash required for `\w`, and a stray closing bracket. It did not match the stored input. A failed match did not create `size`, and that variable name also differed from the eventual `size1` and `size2`. Define and print the same destination names, as in the corrected example.
+
+[← Back to index](README.md#day-4) · [Day contents](#contents)
+
+## Extract names and traverse captured fields
+
+### Clock names from your pasted module
+
+You correctly stored the Verilog text inside a braced Tcl value and eventually extracted `clk_main`, `clk_secondary`, and `clk_out`. Writing `module my_design (` directly at the Tcl prompt tries to execute a Tcl command named `module`; keep the source text inside `set var1 { ... }`.
+
+```tcl
+set var1 {
+module my_design(
+    input wire clk_main,
+    input wire clk_secondary,
+    input wire data_in,
+    output wire data_out,
+    output wire clk_out
+);
+}
+puts "prefix matches=[regexp -all -inline {clk+} $var1]"
+set clock_names [regexp -all -inline {clk\w+} $var1]
+puts "clock names=$clock_names"
+puts "second clock=[lindex $clock_names 1]"
+foreach name $clock_names {
+    puts $name
+}
+```
+
+Output:
+
+```text
+prefix matches=clk clk clk
+clock names=clk_main clk_secondary clk_out
+second clock=clk_secondary
+clk_main
+clk_secondary
+clk_out
+```
+
+`clk+` means `c`, then `l`, then one or more `k` characters. It does not mean one or more repetitions of the word `clk`. Adding `\w+` consumes the underscore and following name characters. Your `{clk \w+}` required a literal space after `clk`, which the names do not contain. Your final `{clk\w+}` works for these names.
+
+Some console lines used `regex`. In the ordinary interactive Tcl shell, a unique command abbreviation can be expanded by `unknown`; `regex` is a prefix of `regexp`. Saved scripts should use the complete command name **`regexp`**, as above. See the [interactive abbreviation rule](https://www.tcl-lang.org/man/tcl8.6/TclCmd/unknown.htm).
+
+This example extracts matching substrings from the pasted text. It does not distinguish declarations from a matching name in a comment or another use of that name elsewhere in a module.
+
+### Vector ports and flat captured results
+
+Your successful ALU pattern captured only the upper range index and the name. Its result contains three list elements per match: the whole matching text, group 1, and group 2. The following example preserves that result, then adds a grouped traversal with both range indices captured:
+
+```tcl
+set var2 {
+module alu (
+    input [7:0] data_in,
+    input [3:0] control,
+    output [15:0] result,
+    output done
+);
+}
+set list3 [regexp -all -inline {\[(\d+):\d\]\s(\w+)} $var2]
+puts "original captures=$list3"
+puts "element count=[llength $list3]"
+puts "first complete match=[lindex $list3 0]"
+puts "first upper index=[lindex $list3 1]"
+
+set fields [regexp -all -inline {\[(\d+):(\d+)\]\s+(\w+)} $var2]
+foreach {whole upper lower name} $fields {
+    puts "$name: range=$upper:$lower; width=[expr {$upper - $lower + 1}]"
+}
+```
+
+Output:
+
+```text
+original captures={[7:0] data_in} 7 data_in {[3:0] control} 3 control {[15:0] result} 15 result
+element count=9
+first complete match=[7:0] data_in
+first upper index=7
+data_in: range=7:0; width=8
+control: range=3:0; width=4
+result: range=15:0; width=16
+```
+
+The added pattern captures the lower index as well, changing each group from three fields to four. It also uses `\s+` to accept one or more whitespace characters. The `foreach` variable list consumes four elements per iteration: whole match, upper index, lower index, and name. The width calculation applies to the descending ranges in this example. The scalar `done` has no bracketed range, so these patterns do not match it.
+
+Your original `list3` is a **flat list**, not three nested records:
+
+| List indices | Whole match | Captured upper index | Captured name |
+| --- | --- | --- | --- |
+| `0, 1, 2` | `[7:0] data_in` | `7` | `data_in` |
+| `3, 4, 5` | `[3:0] control` | `3` | `control` |
+| `6, 7, 8` | `[15:0] result` | `15` | `result` |
+
+`-all -inline` appends the complete match and every captured group for each match to this one list. This explains why `lindex $list3 1` gave `7`. Use `lindex $list3 0` for the first complete match; `lindex $list3` with no index returns the entire list. See [`regexp -inline`](https://www.tcl-lang.org/man/tcl8.6/TclCmd/regexp.htm) and [`foreach` with a variable list](https://www.tcl-lang.org/man/tcl8.6/TclCmd/foreach.htm).
+
+| Your attempt | What to change |
+| --- | --- |
+| `set list3 [regexp ... $var2] $var2` | Remove the extra argument after `]`; the input already belongs inside the command substitution |
+| `set list3 [regexp ...] $var2` | Put `$var2` inside the `regexp` call, before `]` |
+| `puts "list3"` | Use `puts $list3` to print the stored value |
+| `lindex 1 $list3` | Put the list before the index: `lindex $list3 1` |
+| `set var3 []-inlin` | The empty `[]` contributes no text, leaving the literal `-inlin`; this does not capture any matches |
+
+The earlier multi-line pattern ending in `\}` escaped the brace that should have closed the pattern. Tcl therefore collected the later lines as unfinished input before reporting an argument error. Keep the intended regex in one complete braced argument; adding another command on the next line does not repair that earlier argument.
+
+[← Back to index](README.md#day-4) · [Day contents](#contents)
+
+## Replace matches with regsub
+
+Your replacement results are correct. There are two result forms, and both preserve the input value unless you explicitly store the new text into that same variable. See [`regsub`](https://www.tcl-lang.org/man/tcl8.6/TclCmd/regsub.htm).
+
+```tcl
+set var1 hello
+puts "returned text=[regsub {hello} $var1 tcl]"
+puts "original=$var1"
+set count [regsub {hello} $var1 tcl replace]
+puts "count=$count; destination=$replace; original=$var1"
+
+set var1 {hello hello hello}
+puts "first replacement=[regsub {hello} $var1 tcl]"
+puts "all words=[regsub -all {\w+} $var1 123]"
+puts "two-word match=[regsub -all {\w+\s\w+} $var1 123]"
+puts "three-word match=[regsub -all {\w+\s\w+\s\w+} $var1 123]"
+puts "original still=$var1"
+set var1 [regsub -all {hello} $var1 tcl]
+puts "saved text=$var1"
+```
+
+Output:
+
+```text
+returned text=tcl
+original=hello
+count=1; destination=tcl; original=hello
+first replacement=tcl hello hello
+all words=123 123 123
+two-word match=123 hello
+three-word match=123
+original still=hello hello hello
+saved text=tcl tcl tcl
+```
+
+| Form | Command result | Where the new text goes |
+| --- | --- | --- |
+| `regsub {hello} $var1 tcl` | Replaced text | Returned to the caller |
+| `regsub {hello} $var1 tcl replace` | Substitution count | Stored in the variable named `replace` |
+| `set var1 [regsub -all {hello} $var1 tcl]` | `set` returns the assigned text | Stored back into `var1` |
+
+This explains your repeated `puts $var1`: using the destination name `replace` changes `replace`, while `var1` retains its original text. The return value `1` is the number of substitutions, not the replaced string.
+
+Without `-all`, only the first matching range is replaced. With `-all {\w+}`, each word is a separate match, giving three replacements. `{\w+\s\w+}` matches the first two words as one range; the third word is left because it cannot form another two-word match. The three-word pattern spans the entire text and yields one replacement. `-all` applies to matching ranges, not automatically to every word.
 
 [← Back to index](README.md#day-4) · [Day contents](#contents)
 
@@ -570,6 +1022,10 @@ Choose the argument form from what the command expects. A list value is usually 
 | `lset lista 0 6` | Variable name | Changes element `0` and stores the changed list |
 | `lsearch $lista a*` | List value | Returns a match index by default |
 | `lsort $lista` | List value | Returns a sorted list; use `set` to retain it |
+| `regexp pattern $text match` | Input value, then destination name | Returns a match flag and writes `match` when a match succeeds |
+| `regexp -all -inline pattern $text` | Input value | Returns a flat list of matches and captured groups |
+| `regsub pattern $text newText` | Input value | Returns replaced text |
+| `regsub pattern $text newText output` | Input value, then destination name | Writes `output` and returns the substitution count |
 
 The console displays command return values automatically. A saved script needs `puts` for visible output. An empty return value produces a blank line or no extra visible text; it does not by itself mean a command failed.
 
@@ -577,16 +1033,19 @@ The console displays command return values automatically. A saved script needs `
 
 ## Assignment progress and next lesson
 
-Assignments 17–22 belong to Day 4, but your pasted session contains no numbered attempt at them. The employee IDs and records are recorded here as practice examples. The existing [Day 1](day-1.md), [Day 2](day-2.md), and [Day 3](day-3.md) pages retain the 16 earlier assignment reviews.
+You report that Day 4 lessons are complete through **regsub**, with the assignments still remaining. The [Assignment 17 preliminary review](#assignment-17-preliminary-capacitance-list-practice) preserves your new list experiments and identifies the missing input value and the difference between entry count and unique count. There is no completed answer for Assignment 17 and no new attempt at 18–22 in this session.
 
-The first Day 4 question asks for the number of unique values in a capacitance list. It is still blank in the course when checked for this update. This page does not record an invented attempt, filled response, or submission for it.
+No Day 4 assignment response was filled or submitted during this update. The existing [Day 1](day-1.md), [Day 2](day-2.md), and [Day 3](day-3.md) pages retain the 16 earlier assignment reviews. The employee IDs and records above remain practice examples.
 
-Your next lecture is **foreach**, followed by string-to-list conversion and regular expressions. Before moving on, rerun the corrected membership assignment and check these points from your own examples:
+The next study step is **Assignments 17–22**; Day 5 then starts arrays. Before the assignments, revisit these specific points from your sessions:
 
 - Count the value with `llength $list_nest`; its four outer elements differ from the three elements in its first child.
 - Use `lappend lista ...` and `lset lista ...` with destination names.
 - Store a returned list when you want `linsert`, `lreplace`, or `lsort` to change a saved value.
 - Keep the space after `expr` and close its expression with `}]` when saving the result.
+- Give `regexp` both a pattern and an input; choose named destination variables or `-inline`.
+- Read `-all -inline` captures in groups containing the whole match plus each parenthesized capture.
+- Save `regsub`’s returned text, or inspect the destination variable you supplied.
 
 [← Back to index](README.md#day-4) · [Day contents](#contents)
 
@@ -595,13 +1054,7 @@ Your next lecture is **foreach**, followed by string-to-list conversion and regu
 Open the white console using `internal/scripts/start-tcl.cmd`. From its Tcl prompt at the repository root, run:
 
 ```tcl
-source internal/scripts/day-4.tcl
-```
-
-The [saved script](internal/scripts/day-4.tcl) combines the corrected examples above. Its complete contents and output are rendered below.
-
-```tcl
-# Day 4: corrected practice through lists, searching, sorting, in, and ni.
+# Day 4: corrected practice through regsub. Assignments remain pending.
 # See day-4.md for the original attempts and explanations.
 
 # Construct valid lists and preserve spaces inside elements.
@@ -733,6 +1186,127 @@ puts "a is present=$answer"
 puts "a is absent=[expr {"a" ni $lista}]"
 set unevaluated {"a" in $lista}
 puts "stored text=$unevaluated"
+
+# Iterate over lists with foreach.
+set lista [list 1 2 3 4]
+set listb [list ab cd ef gh]
+foreach i $lista j $listb {
+    puts "$i $j"
+}
+
+set listb [list ab ef gh]
+foreach i $lista j $listb {
+    puts "$i |$j|"
+}
+
+# Split a string at delimiter characters.
+set str "Hello"
+puts "split at e=[split $str e]"
+puts "parts at e=[llength [split $str e]]"
+puts "split at l=[split $str l]"
+set str "abcdabcdabcdabab"
+set parts [split $str "ab"]
+puts "split at a or b=$parts"
+puts "part count=[llength $parts]"
+
+# Choose the result form of regexp.
+puts "exists=[regexp {[ho]} hello match]"
+puts "first match=$match"
+puts "count=[regexp -all {[ho]} hello match]"
+puts "last match=$match"
+puts "matching text=[regexp -all -inline {[ho]} hello]"
+puts "index pairs=[regexp -all -inline -indices {[ho]} hello]"
+puts "indices mode count=[regexp -all -indices {[ho]} hello]"
+puts "case sensitive=[regexp {h} Hello]"
+puts "case insensitive=[regexp -nocase {h} Hello]"
+puts "class count=[regexp -all -nocase {[hel]} Hello]"
+puts "class matches=[regexp -all -inline -nocase {[hel]} Hello]"
+
+# Literal text, classes, alternatives, and spaces.
+puts "word=[regexp -all -inline -nocase {hel} Hello]"
+puts "with spaces=[regexp -all -nocase {hel | lo } Hello]"
+puts "alternatives=[regexp -all -inline -nocase {hel|lo} Hello]"
+puts "dot=[regexp -all -inline {h.} hello]"
+puts "literal dot=[regexp {3\.14} 3.14]"
+puts "digit exists=[regexp {\d} 123]"
+puts "first digit=[regexp -inline {\d} 123]"
+
+# Quantifiers and empty matches.
+puts "h star=[regexp -all -inline {h*} hello]"
+puts "a star=[regexp -all -inline {a*} abababaaa]"
+puts "optional h in hello=[regexp -all -inline {h?l} hello]"
+puts "optional h in hlolo=[regexp -all -inline {h?l} hlolo]"
+puts "one or more l=[regexp -all -inline {hl+} hlolohlhl]"
+puts "exactly three l=[regexp -all -inline {l{3}} ollelllla]"
+puts "at least two l=[regexp -all -inline {l{2,}} ollelllla]"
+puts "two to three l=[regexp -all -inline {l{2,3}} ollelllla]"
+
+# Start and end anchors.
+puts "at start=[regexp -all -inline {^hel} helimkapil]"
+puts "at end=[regexp -all -inline {hel$} helimkapilhel]"
+
+# Capture a vector range and port name.
+set input {[7:0] datain}
+set fields [regexp -inline -all {\[(\d+):(\d+)\]\s(\w+)} $input]
+puts "inline fields=$fields"
+set found [regexp {\[(\d+):(\d+)\]\s(\w+)} $input match size1 size2 port]
+puts "found=$found"
+puts "whole match=$match"
+puts "upper=$size1; lower=$size2; port=$port"
+
+# Clock names from your pasted module.
+set var1 {
+module my_design(
+    input wire clk_main,
+    input wire clk_secondary,
+    input wire data_in,
+    output wire data_out,
+    output wire clk_out
+);
+}
+puts "prefix matches=[regexp -all -inline {clk+} $var1]"
+set clock_names [regexp -all -inline {clk\w+} $var1]
+puts "clock names=$clock_names"
+puts "second clock=[lindex $clock_names 1]"
+foreach name $clock_names {
+    puts $name
+}
+
+# Vector ports and flat captured results.
+set var2 {
+module alu (
+    input [7:0] data_in,
+    input [3:0] control,
+    output [15:0] result,
+    output done
+);
+}
+set list3 [regexp -all -inline {\[(\d+):\d\]\s(\w+)} $var2]
+puts "original captures=$list3"
+puts "element count=[llength $list3]"
+puts "first complete match=[lindex $list3 0]"
+puts "first upper index=[lindex $list3 1]"
+
+set fields [regexp -all -inline {\[(\d+):(\d+)\]\s+(\w+)} $var2]
+foreach {whole upper lower name} $fields {
+    puts "$name: range=$upper:$lower; width=[expr {$upper - $lower + 1}]"
+}
+
+# Replace matches with regsub.
+set var1 hello
+puts "returned text=[regsub {hello} $var1 tcl]"
+puts "original=$var1"
+set count [regsub {hello} $var1 tcl replace]
+puts "count=$count; destination=$replace; original=$var1"
+
+set var1 {hello hello hello}
+puts "first replacement=[regsub {hello} $var1 tcl]"
+puts "all words=[regsub -all {\w+} $var1 123]"
+puts "two-word match=[regsub -all {\w+\s\w+} $var1 123]"
+puts "three-word match=[regsub -all {\w+\s\w+\s\w+} $var1 123]"
+puts "original still=$var1"
+set var1 [regsub -all {hello} $var1 tcl]
+puts "saved text=$var1"
 ```
 
 Output:
@@ -802,12 +1376,79 @@ original integers=23 44 1 3 5
 a is present=1
 a is absent=0
 stored text="a" in $lista
+1 ab
+2 cd
+3 ef
+4 gh
+1 |ab|
+2 |ef|
+3 |gh|
+4 ||
+split at e=H llo
+parts at e=2
+split at l=He {} o
+split at a or b={} {} cd {} cd {} cd {} {} {} {}
+part count=11
+exists=1
+first match=h
+count=2
+last match=o
+matching text=h o
+index pairs={0 0} {4 4}
+indices mode count=2
+case sensitive=0
+case insensitive=1
+class count=4
+class matches=H e l l
+word=Hel
+with spaces=0
+alternatives=Hel lo
+dot=he
+literal dot=1
+digit exists=1
+first digit=1
+h star=h {} {} {} {}
+a star=a {} a {} a {} aaa
+optional h in hello=l l
+optional h in hlolo=hl l
+one or more l=hl hl hl
+exactly three l=lll
+at least two l=ll llll
+two to three l=ll lll
+at start=hel
+at end=hel
+inline fields={[7:0] datain} 7 0 datain
+found=1
+whole match=[7:0] datain
+upper=7; lower=0; port=datain
+prefix matches=clk clk clk
+clock names=clk_main clk_secondary clk_out
+second clock=clk_secondary
+clk_main
+clk_secondary
+clk_out
+original captures={[7:0] data_in} 7 data_in {[3:0] control} 3 control {[15:0] result} 15 result
+element count=9
+first complete match=[7:0] data_in
+first upper index=7
+data_in: range=7:0; width=8
+control: range=3:0; width=4
+result: range=15:0; width=16
+returned text=tcl
+original=hello
+count=1; destination=tcl; original=hello
+first replacement=tcl hello hello
+all words=123 123 123
+two-word match=123 hello
+three-word match=123
+original still=hello hello hello
+saved text=tcl tcl tcl
 ```
 
 [← Back to index](README.md#day-4) · [Day contents](#contents)
 
 ## References
 
-The [Namaste FPGA Tcl course](https://namaste-fpga.com/student/learn/37?contentId=1801) supplies the day and lecture order. Your [pasted console session](internal/sources/console-session-2026-10-04-lists.txt) supplies the attempted commands and reported outputs. The official Tcl 8.6.18 command references are linked beside the explanations they support. Corrected code and the stated error cases were checked with the repository’s Tcl 8.6.18 interpreter.
+The [Namaste FPGA Tcl course](https://namaste-fpga.com/student/learn/37?contentId=1801) supplies the day and lecture order. Your [list session](internal/sources/console-session-2026-10-04-lists.txt) and [foreach through regsub session](internal/sources/console-session-2026-10-04-regexp-regsub.txt) supply the attempted commands and reported outputs. The official Tcl 8.6.18 command references are linked beside the explanations they support. Corrected code and the stated error cases were checked with the repository’s Tcl 8.6.18 interpreter. Assignment completion remains pending, as you reported.
 
 [← Back to index](README.md#day-4) · [Day contents](#contents)

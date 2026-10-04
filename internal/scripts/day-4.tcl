@@ -1,4 +1,4 @@
-# Day 4: corrected practice through lists, searching, sorting, in, and ni.
+# Day 4: corrected practice through regsub. Assignments remain pending.
 # See day-4.md for the original attempts and explanations.
 
 # Construct valid lists and preserve spaces inside elements.
@@ -130,3 +130,124 @@ puts "a is present=$answer"
 puts "a is absent=[expr {"a" ni $lista}]"
 set unevaluated {"a" in $lista}
 puts "stored text=$unevaluated"
+
+# Iterate over lists with foreach.
+set lista [list 1 2 3 4]
+set listb [list ab cd ef gh]
+foreach i $lista j $listb {
+    puts "$i $j"
+}
+
+set listb [list ab ef gh]
+foreach i $lista j $listb {
+    puts "$i |$j|"
+}
+
+# Split a string at delimiter characters.
+set str "Hello"
+puts "split at e=[split $str e]"
+puts "parts at e=[llength [split $str e]]"
+puts "split at l=[split $str l]"
+set str "abcdabcdabcdabab"
+set parts [split $str "ab"]
+puts "split at a or b=$parts"
+puts "part count=[llength $parts]"
+
+# Choose the result form of regexp.
+puts "exists=[regexp {[ho]} hello match]"
+puts "first match=$match"
+puts "count=[regexp -all {[ho]} hello match]"
+puts "last match=$match"
+puts "matching text=[regexp -all -inline {[ho]} hello]"
+puts "index pairs=[regexp -all -inline -indices {[ho]} hello]"
+puts "indices mode count=[regexp -all -indices {[ho]} hello]"
+puts "case sensitive=[regexp {h} Hello]"
+puts "case insensitive=[regexp -nocase {h} Hello]"
+puts "class count=[regexp -all -nocase {[hel]} Hello]"
+puts "class matches=[regexp -all -inline -nocase {[hel]} Hello]"
+
+# Literal text, classes, alternatives, and spaces.
+puts "word=[regexp -all -inline -nocase {hel} Hello]"
+puts "with spaces=[regexp -all -nocase {hel | lo } Hello]"
+puts "alternatives=[regexp -all -inline -nocase {hel|lo} Hello]"
+puts "dot=[regexp -all -inline {h.} hello]"
+puts "literal dot=[regexp {3\.14} 3.14]"
+puts "digit exists=[regexp {\d} 123]"
+puts "first digit=[regexp -inline {\d} 123]"
+
+# Quantifiers and empty matches.
+puts "h star=[regexp -all -inline {h*} hello]"
+puts "a star=[regexp -all -inline {a*} abababaaa]"
+puts "optional h in hello=[regexp -all -inline {h?l} hello]"
+puts "optional h in hlolo=[regexp -all -inline {h?l} hlolo]"
+puts "one or more l=[regexp -all -inline {hl+} hlolohlhl]"
+puts "exactly three l=[regexp -all -inline {l{3}} ollelllla]"
+puts "at least two l=[regexp -all -inline {l{2,}} ollelllla]"
+puts "two to three l=[regexp -all -inline {l{2,3}} ollelllla]"
+
+# Start and end anchors.
+puts "at start=[regexp -all -inline {^hel} helimkapil]"
+puts "at end=[regexp -all -inline {hel$} helimkapilhel]"
+
+# Capture a vector range and port name.
+set input {[7:0] datain}
+set fields [regexp -inline -all {\[(\d+):(\d+)\]\s(\w+)} $input]
+puts "inline fields=$fields"
+set found [regexp {\[(\d+):(\d+)\]\s(\w+)} $input match size1 size2 port]
+puts "found=$found"
+puts "whole match=$match"
+puts "upper=$size1; lower=$size2; port=$port"
+
+# Clock names from your pasted module.
+set var1 {
+module my_design(
+    input wire clk_main,
+    input wire clk_secondary,
+    input wire data_in,
+    output wire data_out,
+    output wire clk_out
+);
+}
+puts "prefix matches=[regexp -all -inline {clk+} $var1]"
+set clock_names [regexp -all -inline {clk\w+} $var1]
+puts "clock names=$clock_names"
+puts "second clock=[lindex $clock_names 1]"
+foreach name $clock_names {
+    puts $name
+}
+
+# Vector ports and flat captured results.
+set var2 {
+module alu (
+    input [7:0] data_in,
+    input [3:0] control,
+    output [15:0] result,
+    output done
+);
+}
+set list3 [regexp -all -inline {\[(\d+):\d\]\s(\w+)} $var2]
+puts "original captures=$list3"
+puts "element count=[llength $list3]"
+puts "first complete match=[lindex $list3 0]"
+puts "first upper index=[lindex $list3 1]"
+
+set fields [regexp -all -inline {\[(\d+):(\d+)\]\s+(\w+)} $var2]
+foreach {whole upper lower name} $fields {
+    puts "$name: range=$upper:$lower; width=[expr {$upper - $lower + 1}]"
+}
+
+# Replace matches with regsub.
+set var1 hello
+puts "returned text=[regsub {hello} $var1 tcl]"
+puts "original=$var1"
+set count [regsub {hello} $var1 tcl replace]
+puts "count=$count; destination=$replace; original=$var1"
+
+set var1 {hello hello hello}
+puts "first replacement=[regsub {hello} $var1 tcl]"
+puts "all words=[regsub -all {\w+} $var1 123]"
+puts "two-word match=[regsub -all {\w+\s\w+} $var1 123]"
+puts "three-word match=[regsub -all {\w+\s\w+\s\w+} $var1 123]"
+puts "original still=$var1"
+set var1 [regsub -all {hello} $var1 tcl]
+puts "saved text=$var1"

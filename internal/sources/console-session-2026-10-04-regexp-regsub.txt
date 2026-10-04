@@ -1,0 +1,398 @@
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+% foreach i $lista j $listb {
+  puts "$i $j "
+
+}
+1 ab
+2 cd
+3 ef
+4 gh
+%
+%
+%
+% set listb [list ab ef gh]
+ab ef gh
+% foreach i $lista j $listb {
+  puts "$i $j"
+
+
+}
+1 ab
+2 ef
+3 gh
+4
+% set str "Hello"
+Hello
+% split $str e
+H llo
+% llength [split $str e ]
+2
+% split $str l
+He {} o
+% set str "abcdabcdabcdabab"
+abcdabcdabcdabab
+% split $str "ab"
+{} {} cd {} cd {} cd {} {} {} {}
+% #regexp regsub
+%
+% regexp {h} "hello"
+1
+% regexp {hel} "hello"
+1
+% regexp {[hello]} "hello"
+1
+% #options overview
+% -all
+invalid command name "-all"
+% regexp {[ho]one one lll}
+wrong # args: should be "regexp ?-option ...? exp string ?matchVar? ?subMatchVar ...?"
+%
+%
+% regexp {[ho]} "hello"
+1
+% regexp {[ho]} "hello" match
+1
+% puts $match
+h
+% regexp -all {[ho]} "hello" match
+2
+% puts $match
+o
+% regexp -all -inline {[ho]} "hello" match
+regexp match variables not allowed when using -inline
+% regexp -all -inline {[ho]} "hello"
+h o
+% regexp -all -inline -indices{[ho]} "hello"
+invalid command name "ho"
+% regexp -all -inline -indices {[ho]} "hello"
+{0 0} {4 4}
+% regexp -all -indices {[ho]} "hello"
+2
+% regexp -all -inline -indices {[ho]} "hello"
+{0 0} {4 4}
+% regexp -all -indices {[ho]} "hello"
+2
+%
+% regexp -all -indices {[ho]} "hello"
+2
+%
+% regexp {h} "hello"
+1
+% regexp {h} "Hello"
+0
+% regexp -nocase {h} "Hello"
+1
+% regexp -nocase {h} "Hello"
+1
+% regexp -nocase {[hel]} "Hello"
+1
+% regexp -nocase -all {[hel]} "Hello"
+4
+% regexp -all {hel | lo } "Hello"
+0
+% regexp -all -nocase {hel | lo } "Hello"
+0
+% regexp -all -nocase {hel|lo} "Hello"
+2
+% regexp -all -inline "Hello"
+wrong # args: should be "regexp ?-option ...? exp string ?matchVar? ?subMatchVar ...?"
+% regexp -all -inline "Hello"
+wrong # args: should be "regexp ?-option ...? exp string ?matchVar? ?subMatchVar ...?"
+% regexp -all -inline {h} "Hello"
+%
+% regexp -all -inline -nocase {h} "Hello"
+H
+% regexp -all -inline -nocase {[hel]} "Hello"
+H e l l
+% regexp -all -inline -nocase {hel} "Hello"
+Hel
+% regexp -all -inline {hel|lo} "hello"
+hel lo
+% regexp -all -inline {h.} "hello"
+he
+% regexp -all -inline {h*} "hello"
+h {} {} {} {}
+% regexp -all -inline {a*} "abababaaa"
+a {} a {} a {} aaa
+% regexp -all -inline {h?l} "hello"
+l l
+% regexp -all -inline {h?l} "hlolo"
+hl l
+% regexp -all -inline {hl+} "hlolo"
+hl
+% regexp -all -inline {hl+} "hlolohlhl"
+hl hl hl
+% regexp -all -inline {^hel} "helimkapil"
+hel
+% regexp -all -inline {hel$} "helimkapilhel"
+hel
+% regexp -all -inline {l{3}} "ollelllla"
+lll
+% regexp -all -inline {l{2,}} "ollelllla"
+ll llll
+% regexp -all -inline {l{2,3}} "ollelllla"
+ll lll
+%
+%
+% regexp {3\.14} "3.14"
+1
+% regexp {\d} "123"
+1
+% regexp -inline {\d} "123"
+1
+%
+% set input [7:0] datain
+invalid command name "7:0"
+% set input {[7:0] datain}
+[7:0] datain
+% regexp -inline -all {\[(\d+) :\d\] \s(w+)]} $input
+% regexp -inline -all {\[(\d+) :\d\] \s(w+)]} $input match size port
+regexp match variables not allowed when using -inline
+% puts "$aiw"
+can't read "aiw": no such variable
+% puts "$size"
+can't read "size": no such variable
+%
+%
+%
+% set input "[7:0] datain"
+invalid command name "7:0"
+% set input {[7:0] datain}
+[7:0] datain
+% regexp -inline -all {\[(\d+):(\d+)\]\s(\w+)} $input
+{[7:0] datain} 7 0 datain
+%
+%
+% regexp -inline -all {\[(\d+):(\d+)\]\s(\w+)} $input
+{[7:0] datain} 7 0 datain
+% regexp {\[(\d+):(\d+)\]\s(\w+)} $input match size1 size2 port
+1
+% puts "$size1 $size2 $port "
+7 0 datain
+% set var1 {
+  module my_design ();
+
+  module my_design ();
+
+
+
+
+}
+
+  module my_design ();
+
+  module my_design ();
+
+
+
+
+
+% module my_design (
+invalid command name "module"
+%
+%
+% set var1 {
+module my_design(
+    input wire clk_main,
+    input wire clk_secondary,
+    input wire data_in,
+    output wire data_out,
+    output wire clk_out
+);
+}
+
+module my_design(
+    input wire clk_main,
+    input wire clk_secondary,
+    input wire data_in,
+    output wire data_out,
+    output wire clk_out
+);
+
+% regex -all -inline {clk+} $var1
+clk clk clk
+% regex -all -inline {clk+\w+} $var1
+clk_main clk_secondary clk_out
+% regex -all -inline {clk \w+} $var1
+% regex -all -inline {clk\w+} $var1
+clk_main clk_secondary clk_out
+% set listb [regexp -all -inline {clk\w+} $var1]
+clk_main clk_secondary clk_out
+% lindex $listb 1
+clk_secondary
+% foreach i $listb{
+wrong # args: should be "foreach varList list ?varList list ...? command"
+% foreach i $listb{
+wrong # args: should be "foreach varList list ?varList list ...? command"
+% foreach i $listb {
+  puts "$i"
+}
+clk_main
+clk_secondary
+clk_out
+%
+%
+% set var2 {
+
+
+
+}
+
+
+
+
+
+% set var2 {
+module alu (
+    input [7:0] data_in,
+    input [3:0] control,
+    output [15:0] result,
+    output done
+);
+}
+
+module alu (
+    input [7:0] data_in,
+    input [3:0] control,
+    output [15:0] result,
+    output done
+);
+
+%
+%
+% regex -all -inline {\[} $var2
+{[} {[} {[}
+% regex -all -inline {\[(\d+)\:\d \} $var2
+regex -all -inline {\[(\d+)\:\d \]\s(\w+)} $var2
+
+regex -all -inline {\[(\d+)\:\d \]\s(\w+)} $var2
+regex -all -inline {\[(\d+)\:\d\]\s(\w+)} $var2
+regex -all -inline {\[(\d+)\:\d\]\s(\w+)} $var2
+regexp -all -inline {\[(\d+)\:\d\]\s(\w+)} $var2
+
+
+}
+wrong # args: should be "regexp ?-option ...? exp string ?matchVar? ?subMatchVar ...?"
+% regex -all -inline {\[(\d+)\:\d\]\s(\w+)} $var2
+{[7:0] data_in} 7 data_in {[3:0] control} 3 control {[15:0] result} 15 result
+% set var3 []-inlin
+-inlin
+%
+%
+%
+% set list3 [regexp -all -inline {\[(\d+)\:\d\]\s(\w+)} $var2 ] $var2
+wrong # args: should be "set varName ?newValue?"
+% set list3 [regexp -all -inline {\[(\d+)\:\d\]\s(\w+)}] $var2
+wrong # args: should be "regexp ?-option ...? exp string ?matchVar? ?subMatchVar ...?"
+% set list3 [regexp -all -inline {\[(\d+)\:\d\]\s(\w+)}] $var2
+wrong # args: should be "regexp ?-option ...? exp string ?matchVar? ?subMatchVar ...?"
+% set list3 [regexp -all -inline {\[(\d+)\:\d\]\s(\w+)} $var2]
+{[7:0] data_in} 7 data_in {[3:0] control} 3 control {[15:0] result} 15 result
+% puts "list3"
+list3
+% puts "$list3"
+{[7:0] data_in} 7 data_in {[3:0] control} 3 control {[15:0] result} 15 result
+% puts "$list3"
+{[7:0] data_in} 7 data_in {[3:0] control} 3 control {[15:0] result} 15 result
+% set a [lindex $var3]
+-inlin
+% set a [lindex $list3]
+{[7:0] data_in} 7 data_in {[3:0] control} 3 control {[15:0] result} 15 result
+% set a [lindex 1 $list3]
+bad index "[7:0] data_in": must be integer?[+-]integer? or end?[+-]integer?
+% set a [lindex $list3 1]
+7
+% set a [lindex $list3 0]
+[7:0] data_in
+%
+% set var1 hello
+hello
+% regsub "hello" $var1 "tcl"
+tcl
+% puts $var1
+hello
+% regsub "hello" $var1 "tcl" replace
+1
+% puts $var1
+hello
+% set var1 "hello hello hello"
+hello hello hello
+% regsub "hello" $var1 "tcl" replace
+1
+%
+%
+%
+% puts $var1
+hello hello hello
+% regsub -all {\w+} $var1 "123"
+123 123 123
+% regsub -all {\w+\s\w+} $var1 "123"
+123 hello
+% regsub -all {\w+\s\w+\s\w+} $var1 "123"
+123
+% #assignment 17
+% set caplist [list 12 8 15 7 8 12 8 5 ]
+12 8 15 7 8 12 8 5
+% llength caplist
+1
+% llength $caplist
+8
+% llength $caplist
+8
+% set caplist1 [list 12 15 18 20 12 18]
+12 15 18 20 12 18
+% lreverse $caplist
+5 8 12 8 7 15 8 12
+% lreverse $caplist1
+18 12 20 18 15 12
+% lindex $caplist1 2
+18
+% set lreverse $caplist1
+12 15 18 20 12 18

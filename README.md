@@ -7,9 +7,9 @@ Each day keeps its lesson notes, code examples, and assignment reviews together.
 | 1 | Variables, substitution, comments, saving scripts | [Day 1](day-1.md) |
 | 2 | Grouping, string tests, indexing, matching, comparison | [Day 2](day-2.md) |
 | 3 | Expressions, logic, bitwise operations, units, rounding | [Day 3](day-3.md) |
-| 4 · in progress | Lists through searching, sorting, and membership | [Day 4](day-4.md) |
+| 4 · assignments remain | Lists, foreach, split, regexp, captured fields, regsub | [Day 4](day-4.md) |
 
-Days 1–3 contain 16 assignment reviews, original question screenshots, complete solutions, and expected outputs. Day 4 reviews your new list practice through `in` and `ni`, including the unfinished command at the end; Assignments 17–22 have no recorded attempt in that session. Review and submission remain Kapil’s step.
+Days 1–3 contain 16 assignment reviews, original question screenshots, complete solutions, and expected outputs. Day 4 now covers your practice through `regsub`, with its mistakes and corrections. Assignments 17–22 remain; the preliminary Q17 experiments are reviewed beside sorting. Review and submission remain Kapil’s step.
 
 [Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Day 4 index](#day-4) · [Run the code](#run-the-code)
 
@@ -72,7 +72,7 @@ Expressions and units · [Open the complete day page](day-3.md)
 
 ## Day 4
 
-Lists · practice through `in` and `ni` · [Open the complete day page](day-4.md)
+Lists and regular expressions · practice through `regsub` · assignments remain · [Open the complete day page](day-4.md)
 
 | Lesson or review | Related practice or assignments |
 | --- | --- |
@@ -87,10 +87,17 @@ Lists · practice through `in` and `ni` · [Open the complete day page](day-4.md
 | [Save the results of linsert and lreplace](day-4.md#save-the-results-of-linsert-and-lreplace) | Returned lists and the `replace` spelling error |
 | [Change an element with lset](day-4.md#change-an-element-with-lset) | Update index 0 and print the stored value |
 | [Search for indices or matching values](day-4.md#search-for-indices-or-matching-values) | `-glob`, `-all`, and `-inline` |
-| [Sort text, integers, and real numbers](day-4.md#sort-text-integers-and-real-numbers) | Comparison modes, direction, and the missing input list |
+| [Sort text, integers, and real numbers](day-4.md#sort-text-integers-and-real-numbers) | Comparison modes; [Q17 preliminary practice](day-4.md#assignment-17-preliminary-capacitance-list-practice), still pending |
 | [Test membership and save the result](day-4.md#test-membership-and-save-the-result) | Correct `expr` syntax and the unfinished console input |
+| [Iterate over lists with foreach](day-4.md#iterate-over-lists-with-foreach) | Unequal lengths, empty values, and body braces |
+| [Split a string at delimiter characters](day-4.md#split-a-string-at-delimiter-characters) | `Hello`, adjacent delimiters, and `split $str "ab"` |
+| [Choose the result form of regexp](day-4.md#choose-the-result-form-of-regexp) | Match count, named variables, `-all`, `-inline`, `-indices`, `-nocase` |
+| [Trace regular-expression patterns](day-4.md#trace-regular-expression-patterns) | Character classes, alternatives, quantifiers, anchors, and empty matches |
+| [Capture a vector range and port name](day-4.md#capture-a-vector-range-and-port-name) | Literal brackets, groups, and the `[7:0] datain` example |
+| [Extract names and traverse captured fields](day-4.md#extract-names-and-traverse-captured-fields) | Clock-name extraction and grouped vector-port captures |
+| [Replace matches with regsub](day-4.md#replace-matches-with-regsub) | Return value versus destination variable; original text and `-all` |
 | [Names, values, and changed lists](day-4.md#names-values-and-changed-lists) | Command comparison table |
-| [Assignment progress and next lesson](day-4.md#assignment-progress-and-next-lesson) | Assignments 17–22 not attempted in this session; `foreach` is next |
+| [Assignment progress and next lesson](day-4.md#assignment-progress-and-next-lesson) | Lessons through `regsub` done; Assignments 17–22 remain |
 | [Complete practice script](day-4.md#complete-practice-script) | Corrected examples and verified output |
 
 ## Run the code
