@@ -1,0 +1,12 @@
+{
+  "distribution": "Magicsplat Tcl/Tk for Windows",
+  "distribution_version": "1.18.0",
+  "tcl_version": "8.6.18",
+  "tk_version": "8.6.18",
+  "architecture": "Windows x64",
+  "setup": "Portable extraction; no Windows Installer installation",
+  "publisher": "https://www.magicsplat.com/tcl-installer/",
+  "download": "https://master.dl.sourceforge.net/project/magicsplat/magicsplat-tcl/tcl-8.6.18-installer-1.18.0-x64.msi",
+  "download_sha256": "0087660642d745630b6f017f4133cd9fec55147c08177d168ad420417bb6a7a0",
+  "files": 6512
+}

@@ -1,0 +1,563 @@
+Tcl practice console
+Try: puts "Hello, Kapil!"
+Run the example: source examples/hello.tcl
+Close the console: exit
+
+% set var2_3 23
+23
+% puts $var2_3
+23
+% set res LUT
+LUT
+% puts ${res}6
+LUT6
+% incr var3 5
+5
+% incr var2
+1
+% puts $var2
+1
+% set var1 56
+56
+% set var2 [set var1 87 ]
+87
+% puts $var2
+87
+% set var1 $5
+can't read "5": no such variable
+% set var1 \$5
+$5
+% set var2 mem[addr]
+invalid command name "addr"
+% set var2 mem\[addr]
+mem[addr]
+% set var3 \\n
+\n
+% set vdd 5
+5
+% set clk_freq 50
+50
+% bus_width 64
+invalid command name "bus_width"
+% set bus_width 64
+64
+% set vdd 1.0
+1.0
+% puts vdd
+vdd
+% puts $ vdd
+can not find channel named "$"
+% puts $vdd
+1.0
+% set clk_freq 100
+100
+% puts $clk_freq
+100
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+% puts $clk_freq
+100
+%
+%
+% puts "hello wordl "
+hello wordl
+% puts "hello world""
+extra characters after close-quote
+% puts "hello world"
+hello world
+% puts hello world
+can not find channel named "hello"
+% puts hello
+hello
+% puts {hello world }
+hello world
+% set var1 12
+12
+% set var2 13
+13
+% puts
+wrong # args: should be "puts ?-nonewline? ?channelId? string"
+%
+% puts "The value of var1 is $var1 "
+The value of var1 is 12
+% puts {The value of var1 is $var1 }
+The value of var1 is $var1
+% puts "How are you "
+How are you
+% puts \"How are you? \"
+wrong # args: should be "puts ?-nonewline? ?channelId? string"
+% puts "\"How are you? \""
+"How are you? "
+% puts {"How are you "}
+"How are you "
+% set var1
+12
+%
+% set var1
+12
+%
+% set var1 "APB is used to "
+APB is used to
+% set var1 "APB is used to
+build
+Slow peripherals
+in SoC
+"
+APB is used to
+build
+Slow peripherals
+in SoC
+
+% puts $var1
+APB is used to
+build
+Slow peripherals
+in SoC
+
+% string is digit 123
+1
+% string is digit 123a
+0
+% string is xdigit 123a
+1
+% string is integer -344
+1
+% string is digit 12
+1
+% string is xdigit 13d
+1
+% string is integer 12
+1
+% string is integer -12
+1
+% string is upper ABC
+1
+% string is lower afC
+0
+% string is boolean 1
+1
+% string is boolean 0
+1
+% string is boolean no
+1
+% string is boolean 3
+0
+% string length hello
+5
+% string length "Hello world "
+12
+% string length {Hello world }
+12
+% string length { Hello world }
+13
+% string index Hello 0
+H
+% string index Kapil 5
+% string index Kapil 4
+l
+% string index Kapil end
+l
+% string index Kapil end-1
+i
+% string index kapil end+1
+% set var1 hello
+hello
+% string first he $var1
+0
+% string first lo $var1
+3
+% string first ee $var1
+-1
+% string first lo $var1 3
+3
+% string first lo $var1 1
+3
+% string first he $var1 4
+-1
+% string first he $var1 3
+-1
+% set var2 console
+console
+% string last o $var2
+4
+% string first o $var2
+1
+% string match test "test "
+0
+% string match test "test"
+1
+% string match tast "test"
+0
+% string match -nocase Test "test "
+0
+% string match -nocase Test "test"
+1
+% string match test "Notest"
+0
+% string match *test "Notest"
+1
+% string match *test* "NotestOr"
+1
+% string match test "tast"
+0
+% string match t?st "test"
+1
+% string compare a a
+0
+% string compare a b
+-1
+% string compare b a
+1
+% string compare b A
+1
+% string compare abc deff
+-1
+% string compare abc deff
+-1
+% string compare abc Abc
+1
+% string compare -nocase abc Abc
+0
+% string equal Hello Hello
+1
+% string equal Hello hello
+0
+% string equal -nocase  Hello hello
+1
+% string equal -nocase -length 5 Hello hello
+1
+% string equal -nocase -length 5 Hellogg hellodd
+1
+% set var1 "hello"
+hello
+% string map {h 1} $var1
+1ello
+% $puts var1
+can't read "puts": no such variable
+% $puts var1
+can't read "puts": no such variable
+% puts $var1
+hello
+% string map {"hello" "world"} $var1
+world
+% puts $var1
+hello
+% set var2 "Hello~World~!"
+Hello~World~!
+% string map {"~" " " "!" "."} $var2
+Hello World .
+% set var1 " Hello world "
+ Hello world
+% string trim $var1
+Hello world
+% set var2 "  Hello world  "
+  Hello world
+% string trimleft $var2
+Hello world
+% string trimright $var2
+  Hello world
+% string tolower $var1
+ hello world
+% string toupper $var2
+  HELLO WORLD
+% set var1 12hello
+12hello
+% string toupper $var1
+12HELLO
+% jljlj
+invalid command name "jljlj"
+% set specialString "~@%^+++!!This is special string!!+++^@~"
+~@%^+++!!This is special string!!+++^@~
+% set specialString "~\@%^+++!!This is special string!!+++^@~"
+~@%^+++!!This is special string!!+++^@~
+% set specialString "~@%^+++!!This is special string!!+++^\@~"
+~@%^+++!!This is special string!!+++^@~
+% string length $specialString
+39
+% #assignment 7
+% set var1 '3453383'
+'3453383'
+% set param1 'LowPower'
+'LowPower'
+% set param2 'HighPower'
+'HighPower'
+% set param2 'HighPower'
+'HighPower'
+% unset param2
+% set param2 'HighPerformance'
+'HighPerformance'
+% string equal param1 param2
+0
+% string compare param1 param2
+-1
+% set value "LUT6 LUT4 FMUX DFF BUFG BRAM REG"
+LUT6 LUT4 FMUX DFF BUFG BRAM REG
+% set value " LUT6 LUT4 FMUX DFF BUFG BRAM REG "
+ LUT6 LUT4 FMUX DFF BUFG BRAM REG
+% set primitives DFF
+DFF
+% string match ?primitives?
+wrong # args: should be "string match ?-nocase? pattern string"
+% string match ?LUT6? $value
+0
+% string match LUT6? $value
+0
+% string match *LUT6* $value
+1
+%
+%
+% set memory_block 'RAM512KB'
+'RAM512KB'
+% string index 3 $memory_block
+bad index "'RAM512KB'": must be integer?[+-]integer? or end?[+-]integer?
+% string index $memory_block 3
+M
+% string index $memory_block 0
+'
+% set memory_block "RAM512KB"
+RAM512KB
+% string index memory_block 3
+o
+% string index memory_block 3
+o
+% string index $memory_block 3
+5
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+% #day3
+% set a 4
+4
+% set b 5
+5
+% $a + $b
+invalid command name "4"
+% expr {$a + $b }
+9
+% puts [expr {$a + $b }]
+9
+% # + / % **
+% puts "add : [expr {$a + $b}]"
+add : 9
+% puts "subs : [expr {$a - $b}]"
+subs : -1
+%
+% pwd
+C:/Users/kapil/OneDrive/Desktop/TCL
+% puts "div is : [expr {a / b }]"
+invalid bareword "a"
+in expression "a / b ";
+should be "$a" or "{a}" or "a(...)" or ...
+% puts "div is : [expr {$a / $b }]"
+div is : 0
+% puts "remainder is : [expr {$a % $b }]"
+remainder is : 4
+% # == != < >= <=
+% puts "The value of not is [expr {!b}]"
+invalid bareword "b"
+in expression "!b";
+should be "$b" or "{b}" or "b(...)" or ...
+% puts "The value of not is [expr {!$b}]"
+The value of not is 0
+% set b 0
+0
+% puts "The value of not is [expr {!$b}]"
+The value of not is 1
+% string is boolean $b
+1
+% string is boolean $a l
+bad option "4": must be -strict or -failindex
+% string is boolean $a
+0
+% set num 255
+255
+% puts "[format %d $num]"
+255
+% puts "[format %h $num]"
+format string ended in middle of field specifier
+% puts "[format %x $num]"
+ff
+% puts "[format %b $num]"
+11111111
+% puts "[format %b $num]"
+11111111
+% set var2 12
+12
+% puts "[format %4b $var2 ]"
+1100
+% puts "[format %04b $var2 ]"
+1100
+% puts "[format %08b $var2 ]"
+00001100
+% #bitwise and operator
+% set c 243
+243
+% puts "c value : [format %08b $c ]"
+c value : 11110011
+% set d 123
+123
+% puts "d value in binary is : [format %08b $d ]"
+d value in binary is : 01111011
+% set aband [expr {$a & $b }]
+0
+% puts "Bitwise and is  : [format %08b $aband ]"
+Bitwise and is  : 00000000
+% set aband [expr {$c & $d }]
+115
+% puts "Bitwise and is  : [format %08b $aband ]"
+Bitwise and is  : 01110011
+% puts $a
+4
+% puts $g
+can't read "g": no such variable
+% puts $b
+0
+% set abor [expr {$a | $b}]
+4
+% set cdor [expr {$c | $d}]
+251
+% set cdor [expr {$c | $d}]
+251
+% puts "The or operation result i.e c | d is : [format %08b $cdor ]"
+The or operation result i.e c | d is : 11111011
+% #abs acos asin ceil
+% #assignment attempt 11
+% set resistance 10
+10
+% set totalr = 15
+wrong # args: should be "set varName ?newValue?"
+% set totalr 15
+15
+% set totalr 15
+15
+% set voltage 30
+30
+% puts
+wrong # args: should be "puts ?-nonewline? ?channelId? string"
+%
+% puts "The total current flowing throught the ckt will be [voltage * totalr ]"
+invalid command name "voltage"
+% puts "The total current flowing throught the ckt will be [$voltage * $totalr ]"
+invalid command name "30"
+% puts "The total current flowing throught the ckt will be [$voltage * $totalr]"
+invalid command name "30"
+% puts "The total current flowing throught the ckt will be [expr {$voltage * $totalr}]"
+The total current flowing throught the ckt will be 450
+%
+% #assignment 12
+% set rise 3
+3
+% set fall 4
+4
+% set propdelay 0
+0
+% unset propdelay
+% puts propdelay [$rise + $fall ]
+invalid command name "3"
+% puts propdelay [expr $rise + $fall ]
+can not find channel named "propdelay"
+% puts $propdelay [expr $rise + $fall ]
+can't read "propdelay": no such variable
+% set  $propdelay [expr $rise + $fall ]
+can't read "propdelay": no such variable
+% set propdelay [expr $rise + $fall ]
+7
+% puts "The total prop delay is $propdelay"
+The total prop delay is 7
+% #assignment 13
+% set supply 1.8
+1.8
+% set current 5
+5
+% set powerdissipation [expr {current * supply }]
+invalid bareword "current"
+in expression "current * supply ";
+should be "$current" or "{current}" or "current(...)" or ...
+% set powerdissipation [expr {$current * $supply }]
+9.0
+% puts "The power dissipation is $powerdissipation "
+The power dissipation is 9.0
+%

@@ -1,0 +1,11 @@
+# Downloaded installer and extracted setup files.
+/.setup/
+
+# Keep runtime provenance; exclude the downloaded interpreter and libraries.
+/runtime/*
+!/runtime/installation.json
+
+# Local checks, generated previews, and browser-session records.
+.qa/
+__pycache__/
+*.pyc
