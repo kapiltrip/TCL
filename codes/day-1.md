@@ -381,7 +381,7 @@ The console executes commands immediately. To keep reusable code, place commands
 1. Open a text editor such as Notepad and paste the [complete practice script](#complete-practice-script).
 2. Save as `day-1.tcl` inside this repository’s `codes` folder. In Notepad, choose **Save as type: All files** so the name does not become `day-1.tcl.txt`.
 3. Save edits with **Ctrl+S**.
-4. Double-click `start-tcl.cmd` in that folder, then run the following Tcl command:
+4. Double-click `start-tcl.cmd` in the repository root, then run the following Tcl command:
 
 ```tcl
 source codes/day-1.tcl
