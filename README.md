@@ -1,148 +1,98 @@
 # Tcl/Tk practice
 
-Study notes, runnable code, and assignment reviews from Days 1–3 of the [Namaste FPGA Tcl course](https://namaste-fpga.com/student/learn/37?contentId=1801).
+Each day keeps its lesson notes, code examples, and assignment reviews together. Questions appear beside the lesson they use; **Related lesson** links return to that explanation, and **← Back to index** links return here.
 
-Choose a day and a question or topic below. Each link opens that exact section; **← Back to index** returns to the same day in this index. The assignment pages keep the original question screenshots, your work, corrections, complete code, and expected results together.
+| Day | Topics | Study page |
+| --- | --- | --- |
+| 1 | Variables, substitution, comments, saving scripts | [Day 1](day-1.md) |
+| 2 | Grouping, string tests, indexing, matching, comparison | [Day 2](day-2.md) |
+| 3 | Expressions, logic, bitwise operations, units, rounding | [Day 3](day-3.md) |
 
-[Assignments](#assignments) · [Codes and notes](#codes) · [Run the scripts](#run-the-scripts)
+The three day pages contain all 16 assignment reviews, original question screenshots, complete solutions, and expected outputs. The recorded answers remain drafts for Kapil to review and submit.
 
-## Assignments
+[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Run the code](#run-the-code)
 
-All 16 assignments have documented numeric drafts. Submission and the course’s final grading remain your step.
+## Day 1
 
-### Day 1 assignments
+Variables and substitution · [Open the complete day page](day-1.md)
 
-Variables and substitution · [Open the full review](assignments/day-1.md)
-
-| Question | Topic |
+| Lesson or review | Related questions |
 | --- | --- |
-| 1 | [supply voltage](assignments/day-1.md#assignment-1-supply-voltage) |
-| 2 | [clock frequency](assignments/day-1.md#assignment-2-clock-frequency) |
-| 3 | [bus width](assignments/day-1.md#assignment-3-bus-width) |
-| 4 | [print the supply voltage](assignments/day-1.md#assignment-4-print-the-supply-voltage) |
-| 5 | [print the clock frequency](assignments/day-1.md#assignment-5-print-the-clock-frequency) |
+| [Results at a glance](day-1.md#results-at-a-glance) | — |
+| [Your original practice](day-1.md#your-original-practice) | — |
+| [Commands, values, and output](day-1.md#commands-values-and-output) | — |
+| [Variable names and substitution](day-1.md#variable-names-and-substitution) | — |
+| [Incrementing variables](day-1.md#incrementing-variables) | — |
+| [Command substitution](day-1.md#command-substitution) | — |
+| [Backslashes and literal text](day-1.md#backslashes-and-literal-text) | — |
+| [The five assignment commands](day-1.md#the-five-assignment-commands) | [Q1](day-1.md#assignment-1-supply-voltage), [Q2](day-1.md#assignment-2-clock-frequency), [Q3](day-1.md#assignment-3-bus-width), [Q4](day-1.md#assignment-4-print-the-supply-voltage), [Q5](day-1.md#assignment-5-print-the-clock-frequency) |
+| [Earlier errors: assignment syntax and abbreviations](day-1.md#earlier-errors-assignment-syntax-and-abbreviations) | — |
+| [Missing from the screenshots: unset and execution order](day-1.md#missing-from-the-screenshots-unset-and-execution-order) | — |
+| [Save scripts and write comments](day-1.md#save-scripts-and-write-comments) | — |
+| [A short bridge to Day 2](day-1.md#a-short-bridge-to-day-2) | — |
+| [Complete practice script](day-1.md#complete-practice-script) | — |
+| [Your console evidence](day-1.md#your-console-evidence) | — |
+| [What to revisit before Day 2](day-1.md#what-to-revisit-before-day-2) | — |
 
-### Day 2 assignments
+## Day 2
 
-Strings and matching · [Open the full review](assignments/day-2.md)
+Strings and matching · [Open the complete day page](day-2.md)
 
-| Question | Topic |
+| Lesson or review | Related questions |
 | --- | --- |
-| 6 | [Exact special string and its length](assignments/day-2.md#assignment-6-exact-special-string-and-its-length) |
-| 7 | [Digits equal to 3: sum their indices](assignments/day-2.md#assignment-7-digits-equal-to-3-sum-their-indices) |
-| 8 | [Compare parameter values with string equal](assignments/day-2.md#assignment-8-compare-parameter-values-with-string-equal) |
-| 9 | [Find LUT6 with string match](assignments/day-2.md#assignment-9-find-lut6-with-string-match) |
-| 10 | [ASCII value at index 3](assignments/day-2.md#assignment-10-ascii-value-at-index-3) |
+| [Drafts at a glance](day-2.md#drafts-at-a-glance) | — |
+| [Group words with quotes or braces](day-2.md#group-words-with-quotes-or-braces) | — |
+| [Literal quotes, single quotes, and multiline strings](day-2.md#literal-quotes-single-quotes-and-multiline-strings) | — |
+| [Test the contents with string is](day-2.md#test-the-contents-with-string-is) | — |
+| [Count characters and read an index](day-2.md#count-characters-and-read-an-index) | [Q6](day-2.md#assignment-6-exact-special-string-and-its-length), [Q7](day-2.md#assignment-7-digits-equal-to-3-sum-their-indices), [Q10](day-2.md#assignment-10-ascii-value-at-index-3) |
+| [Find the first or last occurrence](day-2.md#find-the-first-or-last-occurrence) | — |
+| [Match a pattern](day-2.md#match-a-pattern) | [Q9](day-2.md#assignment-9-find-lut6-with-string-match) |
+| [Compare strings or test equality](day-2.md#compare-strings-or-test-equality) | [Q8](day-2.md#assignment-8-compare-parameter-values-with-string-equal) |
+| [Map, trim, and change case](day-2.md#map-trim-and-change-case) | — |
+| [What the assignments required](day-2.md#what-the-assignments-required) | — |
+| [Complete practice script](day-2.md#complete-practice-script) | — |
 
-### Day 3 assignments
+## Day 3
 
-Expressions and units · [Open the full review](assignments/day-3.md)
+Expressions and units · [Open the complete day page](day-3.md)
 
-| Question | Topic |
+| Lesson or review | Related questions |
 | --- | --- |
-| 11 | [Current through series resistors](assignments/day-3.md#assignment-11-current-through-series-resistors) |
-| 12 | [Rise and fall delays: requested total](assignments/day-3.md#assignment-12-rise-and-fall-delays-requested-total) |
-| 13 | [Power in milliwatts](assignments/day-3.md#assignment-13-power-in-milliwatts) |
-| 14 | [Period of a 200 MHz clock](assignments/day-3.md#assignment-14-period-of-a-200-mhz-clock) |
-| 15 | [Transistor count for four full adders](assignments/day-3.md#assignment-15-transistor-count-for-four-full-adders) |
-| 16 | [RC transition time: convert, then round](assignments/day-3.md#assignment-16-rc-transition-time-convert-then-round) |
+| [Drafts at a glance](day-3.md#drafts-at-a-glance) | — |
+| [Use expr for arithmetic](day-3.md#use-expr-for-arithmetic) | [Q11](day-3.md#assignment-11-current-through-series-resistors), [Q12](day-3.md#assignment-12-rise-and-fall-delays-requested-total), [Q15](day-3.md#assignment-15-transistor-count-for-four-full-adders) |
+| [Integer division and floating-point division](day-3.md#integer-division-and-floating-point-division) | — |
+| [Logical and relational operations](day-3.md#logical-and-relational-operations) | — |
+| [Print decimal, hexadecimal, and binary](day-3.md#print-decimal-hexadecimal-and-binary) | — |
+| [Trace your bitwise operations](day-3.md#trace-your-bitwise-operations) | — |
+| [Store a computed result before printing it](day-3.md#store-a-computed-result-before-printing-it) | — |
+| [Mathematical functions and units](day-3.md#mathematical-functions-and-units) | [Q13](day-3.md#assignment-13-power-in-milliwatts), [Q14](day-3.md#assignment-14-period-of-a-200-mhz-clock), [Q16](day-3.md#assignment-16-rc-transition-time-convert-then-round) |
+| [Assignment corrections and completion](day-3.md#assignment-corrections-and-completion) | — |
+| [Complete practice script](day-3.md#complete-practice-script) | — |
 
-## Codes
+## Run the code
 
-Each day has one notes file and one runnable practice script. The notes explain the commands, trace your results, and discuss the errors from your console session.
-
-### Day 1 codes
-
-Variables and substitution · [Open all notes](codes/day-1.md) · [Runnable script](codes/day-1.tcl)
-
-- [Your original practice](codes/day-1.md#your-original-practice)
-- [Commands, values, and output](codes/day-1.md#commands-values-and-output)
-- [Variable names and substitution](codes/day-1.md#variable-names-and-substitution)
-- [Incrementing variables](codes/day-1.md#incrementing-variables)
-- [Command substitution](codes/day-1.md#command-substitution)
-- [Backslashes and literal text](codes/day-1.md#backslashes-and-literal-text)
-- [The five assignment commands](codes/day-1.md#the-five-assignment-commands)
-- [Earlier errors: assignment syntax and abbreviations](codes/day-1.md#earlier-errors-assignment-syntax-and-abbreviations)
-- [Missing from the screenshots: unset and execution order](codes/day-1.md#missing-from-the-screenshots-unset-and-execution-order)
-- [Save scripts and write comments](codes/day-1.md#save-scripts-and-write-comments)
-- [A short bridge to Day 2](codes/day-1.md#a-short-bridge-to-day-2)
-- [Complete practice script](codes/day-1.md#complete-practice-script)
-
-### Day 2 codes
-
-Strings and matching · [Open all notes](codes/day-2.md) · [Runnable script](codes/day-2.tcl)
-
-- [Group words with quotes or braces](codes/day-2.md#group-words-with-quotes-or-braces)
-- [Literal quotes, single quotes, and multiline strings](codes/day-2.md#literal-quotes-single-quotes-and-multiline-strings)
-- [Test the contents with string is](codes/day-2.md#test-the-contents-with-string-is)
-- [Count characters and read an index](codes/day-2.md#count-characters-and-read-an-index)
-- [Find the first or last occurrence](codes/day-2.md#find-the-first-or-last-occurrence)
-- [Match a pattern](codes/day-2.md#match-a-pattern)
-- [Compare strings or test equality](codes/day-2.md#compare-strings-or-test-equality)
-- [Map, trim, and change case](codes/day-2.md#map-trim-and-change-case)
-- [What the assignments required](codes/day-2.md#what-the-assignments-required)
-- [Complete practice script](codes/day-2.md#complete-practice-script)
-
-### Day 3 codes
-
-Expressions and units · [Open all notes](codes/day-3.md) · [Runnable script](codes/day-3.tcl)
-
-- [Use expr for arithmetic](codes/day-3.md#use-expr-for-arithmetic)
-- [Integer division and floating-point division](codes/day-3.md#integer-division-and-floating-point-division)
-- [Logical and relational operations](codes/day-3.md#logical-and-relational-operations)
-- [Print decimal, hexadecimal, and binary](codes/day-3.md#print-decimal-hexadecimal-and-binary)
-- [Trace your bitwise operations](codes/day-3.md#trace-your-bitwise-operations)
-- [Store a computed result before printing it](codes/day-3.md#store-a-computed-result-before-printing-it)
-- [Mathematical functions and units](codes/day-3.md#mathematical-functions-and-units)
-- [Assignment corrections and completion](codes/day-3.md#assignment-corrections-and-completion)
-- [Complete practice script](codes/day-3.md#complete-practice-script)
-
-## Run the scripts
-
-In this local folder, double-click [start-tcl.cmd](start-tcl.cmd) for the Tcl console or [start-gui.cmd](start-gui.cmd) for the Tk greeting window. The console uses a white background with dark text.
-
-At the Tcl `%` prompt, run a saved script with `source`:
+Open `internal/scripts` and double-click [start-tcl.cmd](internal/scripts/start-tcl.cmd) to start the white Tcl console. The launcher sets the working directory to the repository root. At the Tcl `%` prompt, run:
 
 ```tcl
-source codes/day-1.tcl
-source codes/day-2.tcl
-source codes/day-3.tcl
+source internal/scripts/day-1.tcl
+source internal/scripts/day-2.tcl
+source internal/scripts/day-3.tcl
 ```
 
-In PowerShell opened at the repository root, run:
+In PowerShell opened at the repository root, run a saved script with:
 
 ```powershell
-.\tclsh.cmd .\codes\day-1.tcl
-.\tclsh.cmd .\codes\day-2.tcl
-.\tclsh.cmd .\codes\day-3.tcl
-.\wish.cmd .\codes\hello-gui.tcl
+.\internal\scripts\tclsh.cmd .\internal\scripts\day-1.tcl
 ```
 
-Edit a `.tcl` file in your editor and press **Ctrl+S** to save it. Run it again to see the changes. For comments, write `#` at the start of a command:
+For the Tk greeting window, double-click [start-gui.cmd](internal/scripts/start-gui.cmd). Edit a `.tcl` file and press **Ctrl+S** to save; run it again to see your changes. The [Day 1 saving and comments section](day-1.md#save-scripts-and-write-comments) explains the steps and comment syntax.
 
-```tcl
-# Supply voltage in volts.
-set vdd 1.0 ;# A comment after a command needs the semicolon.
-puts $vdd
-```
+## Supporting files
 
-The [Day 1 saving and comments section](codes/day-1.md#save-scripts-and-write-comments) explains the steps. The additional [console example](codes/hello.tcl) and [GUI example](codes/hello-gui.tcl) are ready to edit.
+The study pages live at the root. Supporting material lives inside [internal/](internal/README.md): screenshots, runnable scripts, the original console transcript, and runtime provenance. Local installers, interpreter libraries, checks, and previews also stay there and are excluded from Git.
 
-## Folder guide
+This local folder uses portable Tcl/Tk 8.6.18 from [Magicsplat Tcl/Tk for Windows](https://www.magicsplat.com/tcl-installer/), listed by the [Tcl project](https://www.tcl-lang.org/software/tcltk/bindist.html). See the [installation details](internal/runtime/installation.json). The `.cmd` launchers use `internal/runtime/bin` and `internal/runtime/lib`; a fresh clone needs that runtime layout or an existing Tcl/Tk installation, for example `tclsh internal/scripts/day-1.tcl`.
 
-| Location | What it contains |
-| --- | --- |
-| `assignments/` | One review file per day, with numbered questions and full solutions |
-| `codes/` | One notes file and runnable practice script per day, greeting examples, and the original [console transcript](codes/console-session.txt) |
-| `images/` | Shared question and console screenshots, embedded in the notes and reviews |
-| `runtime/` | Local Tcl/Tk interpreter and libraries; only [installation details](runtime/installation.json) are tracked |
+Use Tcl/Tk for these scripts and GUI exercises. Use Vivado’s Tcl console for FPGA commands such as `create_project` and `synth_design`; see [AMD’s Tcl shell documentation](https://docs.amd.com/r/2025.1-English/ug895-vivado-system-level-design-entry/Launching-the-Vivado-Design-Suite-Tcl-Shell).
 
-## Runtime and Vivado
-
-This local folder uses portable **Tcl/Tk 8.6.18 for Windows x64** from [Magicsplat Tcl/Tk for Windows](https://www.magicsplat.com/tcl-installer/), a distribution listed by the [Tcl project](https://www.tcl-lang.org/software/tcltk/bindist.html). Downloaded executables and libraries stay local.
-
-The launchers use `runtime/bin` and `runtime/lib`. For a fresh clone, prepare that runtime layout or run the scripts with an existing Tcl/Tk installation, for example `tclsh codes/day-1.tcl`.
-
-Use Tcl/Tk here for general scripts and GUI exercises. Use Vivado’s Tcl console for FPGA commands such as `create_project` and `synth_design`; see [AMD’s Tcl shell documentation](https://docs.amd.com/r/2025.1-English/ug895-vivado-system-level-design-entry/Launching-the-Vivado-Design-Suite-Tcl-Shell).
-
-[Back to assignments](#assignments) · [Back to codes](#codes)
+[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3)

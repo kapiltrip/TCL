@@ -1,4 +1,4 @@
-# Run from PowerShell: .\wish.cmd .\codes\hello-gui.tcl
+# Run from PowerShell: .\internal\scripts\wish.cmd .\internal\scripts\hello-gui.tcl
 package require Tk 8.6
 
 ttk::style theme use clam

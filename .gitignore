@@ -1,11 +1,11 @@
-# Downloaded installer and extracted setup files.
-/.setup/
+# Downloaded installer and extracted setup files stay local.
+/internal/.setup/
 
-# Keep runtime provenance; exclude the downloaded interpreter and libraries.
-/runtime/*
-!/runtime/installation.json
+# Keep runtime provenance; exclude the interpreter and its libraries.
+/internal/runtime/*
+!/internal/runtime/installation.json
 
-# Local checks, generated previews, and browser-session records.
-.qa/
+# Local checks, previews, and browser-session records.
+/internal/.qa/
 __pycache__/
 *.pyc

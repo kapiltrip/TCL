@@ -1,15 +1,16 @@
-# Day 1 — Tcl code and notes
+# Day 1 — Tcl variables: notes, code, and assignments
 
-[← Back to index](../README.md#day-1-codes) · [Assignment review](../assignments/day-1.md)
+[← Back to index](README.md#day-1) · [Runnable Day 1 script](internal/scripts/day-1.tcl)
 
 **Kapil’s practice · reviewed 4 October 2026 · Tcl 8.6.18**
 
-Your five final assignment solutions are correct. This file preserves the commands you practised, explains the errors visible in your console, and adds the Day 1 topics that are not demonstrated in the screenshots. The separate [Day 1 Assignments](../assignments/day-1.md) file compares each solution with the course question.
+Your five final assignment solutions are correct. This page preserves your console practice, explains the visible errors, and adds the missing Day 1 examples. Assignments 1–5 appear directly under the lesson on their variable commands.
 
-Course: [Foundation Series 3: TCL fundamentals — Day 1](https://namaste-fpga.com/student/learn/37?contentId=1801). The course outline and assignment questions were reviewed in Chrome. These notes explain your screenshots using the official Tcl manual and examples checked in your installed interpreter.
+Source: [Namaste FPGA Tcl course](https://namaste-fpga.com/student/learn/37?contentId=1801), your original console screenshots, and the [pasted console session](internal/sources/console-session.txt). The screenshots record the filled drafts at review time. No assignment was submitted by Codex; review and submission remain your step. The course’s “Graded” label describes the assignment type; it does not show that these drafts have been graded.
 
 ## Contents
 
+- [Results at a glance](#results-at-a-glance)
 - [Your original practice](#your-original-practice)
 - [Commands, values, and output](#commands-values-and-output)
 - [Variable names and substitution](#variable-names-and-substitution)
@@ -17,28 +18,49 @@ Course: [Foundation Series 3: TCL fundamentals — Day 1](https://namaste-fpga.c
 - [Command substitution](#command-substitution)
 - [Backslashes and literal text](#backslashes-and-literal-text)
 - [The five assignment commands](#the-five-assignment-commands)
+  - [Assignment 1: supply voltage](#assignment-1-supply-voltage)
+  - [Assignment 2: clock frequency](#assignment-2-clock-frequency)
+  - [Assignment 3: bus width](#assignment-3-bus-width)
+  - [Assignment 4: print the supply voltage](#assignment-4-print-the-supply-voltage)
+  - [Assignment 5: print the clock frequency](#assignment-5-print-the-clock-frequency)
 - [Earlier errors: assignment syntax and abbreviations](#earlier-errors-assignment-syntax-and-abbreviations)
 - [Missing from the screenshots: unset and execution order](#missing-from-the-screenshots-unset-and-execution-order)
 - [Save scripts and write comments](#save-scripts-and-write-comments)
 - [A short bridge to Day 2](#a-short-bridge-to-day-2)
 - [Complete practice script](#complete-practice-script)
 - [Verification and references](#verification-and-references)
+- [Your console evidence](#your-console-evidence)
+- [What to revisit before Day 2](#what-to-revisit-before-day-2)
+
+## Results at a glance
+
+| Assignment | Requested operation | Your final solution | Numeric answer | Review |
+| --- | --- | --- | --- | --- |
+| [1](#assignment-1-supply-voltage) | Set the supply voltage to 5 V. | `set vdd 5` | `5` | Correct |
+| [2](#assignment-2-clock-frequency) | Set the clock frequency to 50 MHz. | `set clk_freq 50` | `50` | Correct |
+| [3](#assignment-3-bus-width) | Set the bus width to 64 bits. | `set bus_width 64` | `64` | Correct after your correction |
+| [4](#assignment-4-print-the-supply-voltage) | Set the supply voltage to 1.0 V and print it. | `set vdd 1.0` then `puts $vdd` | `1.0` | Correct after your correction |
+| [5](#assignment-5-print-the-clock-frequency) | Set the clock frequency to 100 MHz and print it. | `set clk_freq 100` then `puts $clk_freq` | `100` | Correct |
+
+The course shows **numeric answer expected** for each question. The numeric answer column gives the value asked for; the code below explains how you obtained it. Keep `1.0` as displayed for Assignment 4. Review and submit the answers yourself when ready.
+
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Your original practice
 
 ### Screenshot 1 — variables, increments, and substitutions
 
-<img src="../images/day-1-console-part-1.png" alt="Your Day 1 console, first portion" width="1260" height="1033">
+<img src="internal/images/day-1-console-part-1.png" alt="Your Day 1 console, first portion" width="1260" height="1033">
 
 The console begins with `set var2_3 23` and continues through the assignment variables. The `%` characters are interpreter prompts. The lines beneath commands are results or output; neither belongs in a saved script.
 
 ### Screenshot 2 — continuation and the five assignments
 
-<img src="../images/day-1-console-part-2.png" alt="Your Day 1 console, continuation" width="919" height="968">
+<img src="internal/images/day-1-console-part-2.png" alt="Your Day 1 console, continuation" width="919" height="968">
 
 The screenshots overlap. Read them as two views of the same sequence of practice, rather than two separate sets of assignments. The second view includes your final `puts $vdd` and `puts $clk_freq` results.
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Commands, values, and output
 
@@ -70,7 +92,7 @@ The course calls Tcl a string based language. For these exercises, a variable ho
 
 `vdd`, `clk_freq`, and `bus_width` are ordinary variable names here. The units come from the problem description. Setting `vdd` does not configure a physical supply, and setting `clk_freq` does not create a Vivado clock constraint.
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Variable names and substitution
 
@@ -104,7 +126,7 @@ LUT6
 
 `${res}` marks exactly where the variable name ends; the `6` is then ordinary text in the same word. `puts $res6` would instead try to read a variable named `res6`. This command constructs the output word `LUT6`; it does not change `res`, which still contains `LUT`. [Variable substitution rules](https://www.tcl-lang.org/man/tcl8.6/TclCmd/Tcl.htm#M12).
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Incrementing variables
 
@@ -134,7 +156,7 @@ Output from `puts`:
 
 Use `incr count`, because this command expects a variable **name**. `incr $count` would use the value of `count` as the name of another variable. A fresh console and an old console can give different results if earlier commands left variables behind. [Official `incr` manual](https://www.tcl-lang.org/man/tcl8.6/TclCmd/incr.htm).
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Command substitution
 
@@ -164,7 +186,7 @@ puts $var2
 
 That prints `56`. Your bracket example is valid; its extra effect is that it overwrites `var1`. [Command substitution rules](https://www.tcl-lang.org/man/tcl8.6/TclCmd/Tcl.htm#M11).
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Backslashes and literal text
 
@@ -264,7 +286,7 @@ second
 
 The distinction was verified by checking the stored characters: your value has length `2` and bytes `5c 6e`; a newline has length `1` and byte `0a`. [Backslash substitution rules](https://www.tcl-lang.org/man/tcl8.6/TclCmd/Tcl.htm#M16).
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## The five assignment commands
 
@@ -289,7 +311,7 @@ set clk_freq 100
 puts $clk_freq
 ```
 
-The assignment answers, in order, are `5`, `50`, `64`, `1.0`, and `100`. The first three are the return values displayed by the interactive shell. The last two are the text printed by `puts`. See the [assignment review](../assignments/day-1.md) for the question matching and earlier attempts.
+The assignment answers, in order, are `5`, `50`, `64`, `1.0`, and `100`. The first three are the return values displayed by the interactive shell. The last two are the text printed by `puts`. See the [assignment review](#contents) for the question matching and earlier attempts.
 
 ### Why the earlier attempts failed
 
@@ -301,13 +323,167 @@ The assignment answers, in order, are `5`, `50`, `64`, `1.0`, and `100`. The fir
 
 The third command produced `can not find channel named "$"`. With two ordinary arguments, `puts` treats the first as an output channel. Keep the dollar sign attached to the variable name. [Official `puts` manual](https://www.tcl-lang.org/man/tcl8.6/TclCmd/puts.htm).
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+### Assignment 1: supply voltage
+
+[Related lesson: The five assignment commands](#the-five-assignment-commands)
+
+<img src="internal/images/assignment-1-draft.jpg" alt="Assignment 1 question and filled draft" width="1532" height="718">
+
+**Problem:** Create `vdd` with value `5`, representing the supply voltage, and identify the value displayed by the interactive interpreter.
+
+**Your solution — correct, preserved:**
+
+```tcl
+set vdd 5
+```
+
+Interactive result:
+
+```text
+5
+```
+
+Your screenshot shows this exact command and result. `set` stores `5` and returns `5`; the interactive shell displays the return value. No extra `puts` is required by this question. [Official `set` behavior](https://www.tcl-lang.org/man/tcl8.6/TclCmd/set.htm).
+
+**Answer to the question: `5`.**
+
+[← Back to index](README.md#day-1) · [Related lesson: The five assignment commands](#the-five-assignment-commands) · [Day contents](#contents)
+
+### Assignment 2: clock frequency
+
+[Related lesson: The five assignment commands](#the-five-assignment-commands)
+
+<img src="internal/images/assignment-2-draft.jpg" alt="Assignment 2 question and filled draft" width="1532" height="718">
+
+**Problem:** Create `clk_freq` with value `50`, representing 50 MHz, and identify the interpreter’s displayed result.
+
+**Your solution — correct, preserved:**
+
+```tcl
+set clk_freq 50
+```
+
+Interactive result:
+
+```text
+50
+```
+
+The screenshot contains this command and result. Your later assignment to `100` does not change the result that this command produced earlier; it only replaces the variable’s value for subsequent commands.
+
+**Answer to the question: `50`.**
+
+[← Back to index](README.md#day-1) · [Related lesson: The five assignment commands](#the-five-assignment-commands) · [Day contents](#contents)
+
+### Assignment 3: bus width
+
+[Related lesson: The five assignment commands](#the-five-assignment-commands)
+
+<img src="internal/images/assignment-3-draft.jpg" alt="Assignment 3 question and filled draft" width="1532" height="718">
+
+**Problem:** Create `bus_width` with value `64`, representing a 64-bit bus, and identify the interpreter’s displayed result.
+
+**Your final solution — correct, preserved:**
+
+```tcl
+set bus_width 64
+```
+
+Interactive result:
+
+```text
+64
+```
+
+Your earlier attempt was:
+
+```tcl
+bus_width 64
+```
+
+It produced:
+
+```text
+invalid command name "bus_width"
+```
+
+The first word of a Tcl command must name a command. Tcl therefore looked for a command named `bus_width`. Adding `set` made `bus_width` the variable-name argument instead. You already fixed this in the screenshot; no further correction is needed.
+
+**Answer to the question: `64`.**
+
+[← Back to index](README.md#day-1) · [Related lesson: The five assignment commands](#the-five-assignment-commands) · [Day contents](#contents)
+
+### Assignment 4: print the supply voltage
+
+[Related lesson: The five assignment commands](#the-five-assignment-commands)
+
+<img src="internal/images/assignment-4-draft.jpg" alt="Assignment 4 question and filled draft" width="1532" height="718">
+
+**Problem:** Set `vdd` to `1.0`, representing 1.0 V, then print its value with `puts`.
+
+**Your final solution — correct, preserved:**
+
+```tcl
+set vdd 1.0
+puts $vdd
+```
+
+Output from `puts`:
+
+```text
+1.0
+```
+
+In the interactive console, `set` also displays its return value `1.0`. The question asks for the output printed by `puts`, which is the same text. As a saved script, these two lines print `1.0` once.
+
+Your earlier attempts explain the distinction between a name and a value:
+
+| Attempt | Observed result | Explanation |
+| --- | --- | --- |
+| `puts vdd` | `vdd` | Printed the literal word rather than reading the variable. |
+| `puts $ vdd` | `can not find channel named "$"` | The space made `$` and `vdd` separate arguments; `$` was interpreted as a channel name. |
+| `puts $vdd` | `1.0` | Substituted the variable’s value and printed it. |
+
+You corrected both earlier attempts yourself. Keep the final `$vdd` form, with no space between `$` and `vdd`. [Official `puts` syntax](https://www.tcl-lang.org/man/tcl8.6/TclCmd/puts.htm).
+
+**Answer to the question: `1.0`.**
+
+[← Back to index](README.md#day-1) · [Related lesson: The five assignment commands](#the-five-assignment-commands) · [Day contents](#contents)
+
+### Assignment 5: print the clock frequency
+
+[Related lesson: The five assignment commands](#the-five-assignment-commands)
+
+<img src="internal/images/assignment-5-draft.jpg" alt="Assignment 5 question and filled draft" width="1532" height="718">
+
+**Problem:** Set `clk_freq` to `100`, representing 100 MHz, then print its value with `puts`.
+
+**Your solution — correct, preserved:**
+
+```tcl
+set clk_freq 100
+puts $clk_freq
+```
+
+Output from `puts`:
+
+```text
+100
+```
+
+Both commands and their results are visible at the end of your second console screenshot. As with Assignment 4, the interactive shell displays the `set` result as well, whereas a saved script prints only the explicit `puts` output.
+
+**Answer to the question: `100`.**
+
+[← Back to index](README.md#day-1) · [Related lesson: The five assignment commands](#the-five-assignment-commands) · [Day contents](#contents)
+
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Earlier errors: assignment syntax and abbreviations
 
 Your earlier console screenshot from this conversation also showed these attempts:
 
-<img src="../images/day-1-earlier-console.png" alt="Earlier Day 1 console showing assignment syntax errors" width="1856" height="884">
+<img src="internal/images/day-1-earlier-console.png" alt="Earlier Day 1 console showing assignment syntax errors" width="1856" height="884">
 
 ```tcl
 int i ; i=5 ;
@@ -334,7 +510,7 @@ Output:
 
 The earlier screenshot contains `put var`, which printed `var` in that interactive console. Tcl’s default interactive handler can expand a unique abbreviated command name, so `put` can resolve to `puts`. It can also explain the unexpected `interp` subcommand error from your `int i` attempt. Always write the full command `puts` in saved scripts; interactive abbreviation is not dependable script syntax. [Official `unknown` manual](https://www.tcl-lang.org/man/tcl8.6/TclCmd/unknown.htm).
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Missing from the screenshots: unset and execution order
 
@@ -372,19 +548,19 @@ The final print is `100` because the second assignment replaces the first. Each 
 
 An error in an ordinary sourced script stops that script at the failing command. In an interactive console, you can enter a new command after the error. That is why your screenshots can show a failed attempt followed by a correction. Keep intentional error demonstrations separate from the clean script below.
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Save scripts and write comments
 
 The console executes commands immediately. To keep reusable code, place commands in a text file ending in `.tcl`; copying prompts and output into the file would make them commands too.
 
 1. Open a text editor such as Notepad and paste the [complete practice script](#complete-practice-script).
-2. Save as `day-1.tcl` inside this repository’s `codes` folder. In Notepad, choose **Save as type: All files** so the name does not become `day-1.tcl.txt`.
+2. Save as `day-1.tcl` inside this repository’s `internal/scripts` folder. In Notepad, choose **Save as type: All files** so the name does not become `day-1.tcl.txt`.
 3. Save edits with **Ctrl+S**.
-4. Double-click `start-tcl.cmd` in the repository root, then run the following Tcl command:
+4. Open `internal/scripts` and double-click `start-tcl.cmd`. The launcher starts the console at the repository root; run this Tcl command there:
 
 ```tcl
-source codes/day-1.tcl
+source internal/scripts/day-1.tcl
 ```
 
 `source` reads and executes the saved file. It does not save the console session. After editing the file, save it and source it again. Variables from an earlier run can remain in the current interpreter; the practice script below resets its increment examples to give repeatable results. [Official `source` manual](https://www.tcl-lang.org/man/tcl8.6/TclCmd/source.htm).
@@ -399,7 +575,7 @@ puts $vdd
 
 Do not write `set vdd 1.0 # Voltage in volts`: without the semicolon, the extra words are arguments to `set`. Tcl recognises `#` as a comment marker where a new command can begin. [Comment rules](https://www.tcl-lang.org/man/tcl8.6/TclCmd/Tcl.htm#M30).
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## A short bridge to Day 2
 
@@ -445,13 +621,13 @@ Ready for strings
 
 This is enough preparation for the opening Day 2 lessons. The remaining string commands and Assignments 6–10 belong to your later Day 2 work and have not been assessed here.
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Complete practice script
 
-[Open the runnable Day 1 script](day-1.tcl).
+[Open the runnable Day 1 script](internal/scripts/day-1.tcl).
 
-This clean version combines your successful commands with the small additions above. The reset before `incr` is added for repeatability; the screenshots do not show that reset. Save only the code inside this block as `codes/day-1.tcl`.
+This clean version combines your successful commands with the small additions above. The reset before `incr` is added for repeatability; the screenshots do not show that reset. Save only the code inside this block as `internal/scripts/day-1.tcl`.
 
 ```tcl
 # Day 1: variables, substitution, literal text, and assignment checks.
@@ -548,7 +724,7 @@ Voltage = $vdd V
 
 The explicit `puts` calls added to Assignments 1–3 make their values visible in a saved script. Your original `set` commands were already sufficient for the questions about the interactive interpreter.
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
 
 ## Verification and references
 
@@ -560,4 +736,28 @@ Use these references for the exact command forms:
 - [set](https://www.tcl-lang.org/man/tcl8.6/TclCmd/set.htm) · [incr](https://www.tcl-lang.org/man/tcl8.6/TclCmd/incr.htm) · [unset](https://www.tcl-lang.org/man/tcl8.6/TclCmd/unset.htm) — variable operations.
 - [puts](https://www.tcl-lang.org/man/tcl8.6/TclCmd/puts.htm) · [source](https://www.tcl-lang.org/man/tcl8.6/TclCmd/source.htm) · [unknown](https://www.tcl-lang.org/man/tcl8.6/TclCmd/unknown.htm) — output, saved scripts, and interactive abbreviations.
 
-[← Back to index](../README.md#day-1-codes) · [This day’s contents](#contents)
+[← Back to index](README.md#day-1) · [Day contents](#contents)
+
+## Your console evidence
+
+<img src="internal/images/day-1-console-part-2.png" alt="Your assignment commands and corrections in the console" width="919" height="968">
+
+This original screenshot contains all five final solutions. It also preserves the unsuccessful attempts for Assignments 3 and 4, so the explanations above can be checked against what you actually typed.
+
+Your wider Day 1 practice, including variable naming, `${res}6`, `incr`, command substitution, and escaping special characters, is documented in [the original practice section](#your-original-practice) of this page.
+
+[← Back to index](README.md#day-1) · [Day contents](#contents)
+
+## What to revisit before Day 2
+
+No assignment solution is missing from the supplied screenshots. The useful follow-up is to make the underlying syntax familiar:
+
+- **Command versus variable:** `set bus_width 64` uses `set` as the command and `bus_width` as the name. A name alone does not perform assignment.
+- **Name versus value:** write `vdd` when assigning and `$vdd` when reading its value for `puts`.
+- **Interactive result versus printed output:** the console displays the return value of `set`; scripts need explicit `puts` for visible output.
+- **Deleting a variable:** the Day 1 outline includes `unset`, but it is not demonstrated in your screenshots. The [notes include a short example](#missing-from-the-screenshots-unset-and-execution-order).
+- **Grouping and literal characters:** the first Day 2 lessons on quotes and braces connect directly to your `$5`, `[addr]`, and `\n` practice. The [Day 2 bridge](#a-short-bridge-to-day-2) explains that connection.
+
+The five results were verified in fresh Tcl 8.6.18 interpreters. This is a local correctness review, with submission and the course’s final grading left to you.
+
+[← Back to index](README.md#day-1) · [Day contents](#contents)
