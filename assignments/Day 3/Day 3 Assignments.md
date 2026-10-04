@@ -54,10 +54,10 @@ puts $total_current
 2.0
 ```
 
-The series resistance is $R_{\mathrm{total}}=10+5=15\,\mathrm{\Omega}$. Ohm's law gives:
+The series resistance is $R_{\mathrm{total}}=10+5=15\thinspace\mathrm{\Omega}$. Ohm's law gives:
 
 $$
-I=\frac{V}{R_{\mathrm{total}}}=\frac{30}{15}=2\,\mathrm{A}.
+I=\frac{V}{R_{\mathrm{total}}}=\frac{30}{15}=2\thinspace\mathrm{A}.
 $$
 
 Your final expression `$voltage * $totalr` was valid Tcl multiplication, but it produced `450` using the wrong formula for current. Divide voltage by total resistance. Setting the voltage to `30.0` makes the division floating point, yielding `2.0`.
@@ -119,7 +119,7 @@ puts $powerdissipation
 Your final expression is correct:
 
 $$
-P=VI=1.8\,\mathrm{V}\times5\,\mathrm{mA}=9\,\mathrm{mW}.
+P=VI=1.8\thinspace\mathrm{V}\times5\thinspace\mathrm{mA}=9\thinspace\mathrm{mW}.
 $$
 
 The numeric current `5` represents milliamperes in this script, so the resulting `9.0` is in milliwatts. Converting current to amperes would give `0.009` watts, which is the same power in a different unit. The question requests milliwatts, so `9.0` is the draft.
@@ -151,7 +151,7 @@ puts $period_ns
 Using the frequency in megahertz, the period in nanoseconds is:
 
 $$
-T_{\mathrm{ns}}=\frac{1000}{f_{\mathrm{MHz}}}=\frac{1000}{200}=5\,\mathrm{ns}.
+T_{\mathrm{ns}}=\frac{1000}{f_{\mathrm{MHz}}}=\frac{1000}{200}=5\thinspace\mathrm{ns}.
 $$
 
 The conversion factor carries the MHz-to-nanosecond relationship. A bare `1 / 200` with integer operands would return `0`, and would also omit the requested unit conversion. The complete calculation uses `1000.0 / 200.0` and produces `5.0` nanoseconds.
@@ -215,7 +215,7 @@ puts $rounded_ns
 The specified formula is $T=RC\ln(2)$. Convert the capacitance to farads before using resistance in ohms:
 
 $$
-T=500\times(2\times10^{-12})\times\ln(2)\,\mathrm{s}.
+T=500\times(2\times10^{-12})\times\ln(2)\thinspace\mathrm{s}.
 $$
 
 The unrounded result is about `0.693147` nanoseconds. Rounding in the requested unit gives `1` nanosecond. Tcl's `log(2.0)` is the natural logarithm; `round` returns the nearest integer.
