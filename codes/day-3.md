@@ -1,10 +1,12 @@
 # Day 3 — Tcl expressions: code and notes
 
+[← Back to index](../README.md#day-3-codes) · [Assignment review](../assignments/day-3.md)
+
 **Kapil’s console practice · reviewed 4 October 2026 · Tcl 8.6.18**
 
-Your session practised arithmetic, logical operations, number formatting, and bitwise operations, then attempted Assignments 11–13. This file explains that work and adds the mathematical functions needed to finish Day 3. [Day 3 Assignments](Day%203%20Assignments.md) contains the six questions, complete solutions, and entered numeric drafts.
+Your session practised arithmetic, logical operations, number formatting, and bitwise operations, then attempted Assignments 11–13. This file explains that work and adds the mathematical functions needed to finish Day 3. [Day 3 Assignments](../assignments/day-3.md) contains the six questions, complete solutions, and entered numeric drafts.
 
-Source evidence: [your pasted console session](../.sources/day-1-to-3-console.txt), beginning at `#day3`. Added examples are identified below; they are not presented as commands you already entered.
+Source evidence: [your pasted console session](console-session.txt), beginning at `#day3`. Added examples are identified below; they are not presented as commands you already entered.
 
 ## Contents
 
@@ -62,6 +64,8 @@ Your `expr {a / b}` and `expr {!b}` attempts lacked the dollar signs. `a` and `b
 
 Square brackets alone do not request arithmetic. Your `[$voltage * $totalr]` attempt tried to execute a command named `30`. `[expr {$voltage * $totalr}]` performs multiplication, although that multiplication was the wrong physical formula for Assignment 11.
 
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
+
 ## Integer division and floating-point division
 
 Your `a=4`, `b=5` division returned `0`, and the remainder returned `4`. That is consistent with integer operands:
@@ -95,6 +99,8 @@ For these positive operands, the integer quotient is zero and the remainder is f
 | Exponentiation | `expr {$a ** $b}` | `1024` |
 
 Later you changed `b` to `0` for logical NOT. That later value should not be substituted into the earlier division example. The clean examples here initialise their own inputs so they can be run independently.
+
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
 
 ## Logical and relational operations
 
@@ -135,6 +141,8 @@ Your `string is boolean $a l` had an extra argument. Tcl tried to interpret the 
 
 Relational and logical tests return `0` or `1`. Bitwise operations return an integer assembled from the individual bit results. [Expression operators](https://www.tcl-lang.org/man/tcl8.6/TclCmd/expr.htm).
 
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
+
 ## Print decimal, hexadecimal, and binary
 
 Your `num=255` demonstrations produced decimal `255`, hexadecimal `ff`, and binary `11111111`:
@@ -164,6 +172,8 @@ ff
 `%x` is the hexadecimal conversion. Your `%h` attempt failed because `h` is a size modifier without a following conversion character, not the hexadecimal conversion.
 
 The width is a minimum width. The binary value `1100` already occupies four characters, so `%4b` and `%04b` add no padding. `%08b` requests a width of eight with leading zeroes. Formatting changes the representation you print; it does not change the numeric variable. [Official `format` conversions](https://www.tcl-lang.org/man/tcl8.6/TclCmd/format.htm).
+
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
 
 ## Trace your bitwise operations
 
@@ -207,6 +217,8 @@ NOT8=00001100
 
 Tcl integers are not automatically eight-bit hardware registers. `~243` is `-244`; the `& 0xff` mask selects the low eight bits, giving `12`. The mask is an added teaching example, rather than something shown in your transcript.
 
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
+
 ## Store a computed result before printing it
 
 You fixed Assignment 12 by storing a result in `propdelay` and then printing it. This braced version keeps the same sum:
@@ -237,6 +249,8 @@ The earlier failures have different causes:
 
 Use a name when storing: `set propdelay ...`. Use its value when printing: `puts $propdelay`. Assignment 12’s wording calls this a “total”; the assignment review explicitly records the sum interpretation used for the draft.
 
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
+
 ## Mathematical functions and units
 
 Your comment listed `abs`, `acos`, `asin`, and `ceil`, but the transcript does not show calls to those functions. These added examples make their usage concrete:
@@ -265,6 +279,8 @@ Call these functions inside `expr`. `acos` and `asin` return angles in radians. 
 
 Units belong to the calculation you design; Tcl does not attach them to plain numeric variables. Assignment 13 supplies current in milliamperes, so multiplying that number by the voltage gives milliwatts. Assignment 14 supplies megahertz and requests nanoseconds, so the conversion factor is `1000.0`. Assignment 16 supplies picofarads, and the complete solution converts the computed seconds to nanoseconds **before** rounding.
 
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
+
 ## Assignment corrections and completion
 
 | Assignment | Console work | Draft prepared |
@@ -276,11 +292,15 @@ Units belong to the calculation you design; Tcl does not attach them to plain nu
 | 15 | No attempt appears in the supplied transcript. | Completed the transistor count: `112`. |
 | 16 | No attempt appears in the supplied transcript. | Completed the RC calculation and rounding: `1` nanosecond. |
 
-The [assignment review](Day%203%20Assignments.md) shows each problem image, complete code, unit calculation, and the numeric draft entered in its dedicated Chrome tab. Every submission remains for you.
+The [assignment review](../assignments/day-3.md) shows each problem image, complete code, unit calculation, and the numeric draft entered in its dedicated Chrome tab. Every submission remains for you.
+
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
 
 ## Complete practice script
 
-Save as `day-3-practice.tcl` in the workspace and run `source day-3-practice.tcl` in the Tcl console.
+[Open the runnable Day 3 script](day-3.tcl).
+
+Save as `codes/day-3.tcl` in the workspace and run `source codes/day-3.tcl` in the Tcl console.
 
 ```tcl
 set a 4
@@ -329,6 +349,8 @@ transition=0.693147 ns
 rounded=1 ns
 ```
 
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)
+
 ## References
 
 - [expr](https://www.tcl-lang.org/man/tcl8.6/TclCmd/expr.htm) — operators, substitutions, numeric types, and division.
@@ -336,4 +358,4 @@ rounded=1 ns
 - [Mathematical functions](https://www.tcl-lang.org/man/tcl8.6/TclCmd/mathfunc.htm) — logarithms, rounding, and the added function examples.
 - [string](https://www.tcl-lang.org/man/tcl8.6/TclCmd/string.htm) — Boolean string validation.
 
-[Return to contents](#contents) · [Day 3 assignments](Day%203%20Assignments.md) · [Day 2 code and notes](../Day%202/Day%202%20Code.md)
+[← Back to index](../README.md#day-3-codes) · [This day’s contents](#contents)

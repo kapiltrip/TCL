@@ -1,8 +1,10 @@
 # Day 2 — Tcl strings: code and notes
 
+[← Back to index](../README.md#day-2-codes) · [Assignment review](../assignments/day-2.md)
+
 **Kapil’s console practice · reviewed 4 October 2026 · Tcl 8.6.18**
 
-This day covers grouping, string tests, indexing, searches, matching, comparisons, replacement, trimming, and case conversion. The examples follow your [pasted console session](../.sources/day-1-to-3-console.txt). Your original attempts are distinguished from the corrected code. The five course questions and the entered drafts are in [Day 2 Assignments](Day%202%20Assignments.md).
+This day covers grouping, string tests, indexing, searches, matching, comparisons, replacement, trimming, and case conversion. The examples follow your [pasted console session](console-session.txt). Your original attempts are distinguished from the corrected code. The five course questions and the entered drafts are in [Day 2 Assignments](../assignments/day-2.md).
 
 ## Contents
 
@@ -66,6 +68,8 @@ The quoted word substitutes `$var1`. The braced word preserves it literally at t
 
 Your bare `puts` failed because it had no text argument. `puts` needs a string even when you only want a blank line; `puts ""` prints an empty line.
 
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
+
 ## Literal quotes, single quotes, and multiline strings
 
 You tried `puts \"How are you? \"`. Escaping the quotes makes them ordinary characters; it does not group the intervening spaces. Your successful forms supply one complete argument:
@@ -115,6 +119,8 @@ Your original closing quote was on a new line after `in SoC`, so the stored stri
 
 The characters `~`, `@`, `%`, `^`, `+`, and `!` in Assignment 6 are ordinary text inside its braced string. Your `\@` did not change the value; escaping `@` was unnecessary. The actual assignment correction was restoring the missing space and `%`.
 
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
+
 ## Test the contents with string is
 
 Your classifier commands produced these results:
@@ -149,6 +155,8 @@ Output:
 ```
 
 This empty-input example is an added clarification. [Official string-class definitions](https://www.tcl-lang.org/man/tcl8.6/TclCmd/string.htm).
+
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
 
 ## Count characters and read an index
 
@@ -197,6 +205,8 @@ Your Assignment 10 attempts illustrate three different mistakes:
 
 After correcting the value and using `$memory_block`, index `3` returns `5`. The question asks for its ASCII number, so the completed solution converts that character to `53` with `scan ... %c`. [Indexing rules](https://www.tcl-lang.org/man/tcl8.6/TclCmd/string.htm) · [Character scanning](https://www.tcl-lang.org/man/tcl8.6/TclCmd/scan.htm).
 
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
+
 ## Find the first or last occurrence
 
 Your `hello` searches returned `0` for `he`, `3` for `lo`, and `-1` for the absent `ee`. A start index limits where the search begins; it does not change the returned index into a relative offset.
@@ -222,6 +232,8 @@ Output:
 ```
 
 For `console`, the `o` characters are at indices `1` and `4`. `first` chooses the earlier occurrence and `last` the later one. An unsuccessful search returns `-1`, rather than the empty string returned by out-of-range `string index`.
+
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
 
 ## Match a pattern
 
@@ -250,6 +262,8 @@ Output:
 `*` matches any sequence, including no characters; `?` matches exactly one character. Therefore `?LUT6?` is a six-character pattern. It cannot match your complete resources string, which is much longer. `*LUT6*` permits any amount of text before and after `LUT6`, as Assignment 9 requests.
 
 Your `string match ?primitives?` also lacked the input-string argument. The form is `string match pattern string`, with optional `-nocase` before the pattern. Braces around a pattern preserve its literal wildcard notation for the matcher. [Official pattern rules](https://www.tcl-lang.org/man/tcl8.6/TclCmd/string.htm).
+
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
 
 ## Compare strings or test equality
 
@@ -296,6 +310,8 @@ Output:
 ```
 
 The assignment asks for `equal`, so its draft is `0`. The `compare` line is included here to explain the distinction; its `1` is not the requested answer.
+
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
 
 ## Map, trim, and change case
 
@@ -349,6 +365,8 @@ upper=<  HELLO WORLD  >
 
 Trimming removes whitespace at the selected ends, while case conversion preserves spaces and digits. These calls leave `text` unchanged. Use `set text [string trim $text]` to retain a transformed result. [Official string transformations](https://www.tcl-lang.org/man/tcl8.6/TclCmd/string.htm).
 
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
+
 ## What the assignments required
 
 | Assignment | Your work | Completed draft |
@@ -359,11 +377,15 @@ Trimming removes whitespace at the selected ends, while case conversion preserve
 | 9 | Your final `*LUT6*` match returned `1`. | Preserve that match and result. |
 | 10 | Your final index lookup returned the character `5`. | Convert it to the requested ASCII value `53`. |
 
-The screenshots, full solutions, and reasoning are rendered in [Day 2 Assignments](Day%202%20Assignments.md). Numeric drafts were entered in separate Chrome tabs; submission remains for your review.
+The screenshots, full solutions, and reasoning are rendered in [Day 2 Assignments](../assignments/day-2.md). Numeric drafts were entered in separate Chrome tabs; submission remains for your review.
+
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
 
 ## Complete practice script
 
-Save this block as `day-2-practice.tcl` in the Tcl workspace and run `source day-2-practice.tcl` from your Tcl console. It demonstrates the commands from your session and gives visible boundaries around whitespace.
+[Open the runnable Day 2 script](day-2.tcl).
+
+Save this block as `codes/day-2.tcl` in the Tcl workspace and run `source codes/day-2.tcl` from your Tcl console. It demonstrates the commands from your session and gives visible boundaries around whitespace.
 
 ```tcl
 set var1 12
@@ -411,10 +433,12 @@ upper=<  HELLO WORLD  >
 53
 ```
 
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)
+
 ## References
 
 - [Tcl language syntax](https://www.tcl-lang.org/man/tcl8.6/TclCmd/Tcl.htm) — grouping and substitution.
 - [string](https://www.tcl-lang.org/man/tcl8.6/TclCmd/string.htm) — the subcommands used in this session.
 - [puts](https://www.tcl-lang.org/man/tcl8.6/TclCmd/puts.htm) and [scan](https://www.tcl-lang.org/man/tcl8.6/TclCmd/scan.htm) — output and character-code conversion.
 
-[Return to contents](#contents) · [Day 2 assignments](Day%202%20Assignments.md) · [Day 3 code and notes](../Day%203/Day%203%20Code.md)
+[← Back to index](../README.md#day-2-codes) · [This day’s contents](#contents)

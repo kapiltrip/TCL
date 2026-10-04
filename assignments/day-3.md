@@ -1,10 +1,12 @@
 # Day 3 — Assignment review and drafts
 
+[← Back to index](../README.md#day-3-assignments) · [Code and notes](../codes/day-3.md)
+
 **Reviewed 4 October 2026 · Tcl 8.6.18 · drafts entered, not submitted**
 
-These questions were read in your [Namaste FPGA course](https://namaste-fpga.com/student/learn/37?contentId=1801) and compared with your [console session](../.sources/day-1-to-3-console.txt). Each numeric answer is entered in its own Chrome tab for you to review and submit. The screenshots below show the actual filled drafts. The scripts were checked locally in Tcl 8.6.18.
+These questions were read in your [Namaste FPGA course](https://namaste-fpga.com/student/learn/37?contentId=1801) and compared with your [console session](../codes/console-session.txt). Each numeric answer was entered in its own Chrome tab for you to review and submit. The screenshots below show the actual filled drafts. The scripts were checked locally in Tcl 8.6.18.
 
-For the lesson concepts and your earlier syntax errors, see [Day 3 Code](Day%203%20Code.md).
+For the lesson concepts and your earlier syntax errors, see [Day 3 Code](../codes/day-3.md).
 
 ## Contents
 
@@ -29,9 +31,11 @@ For the lesson concepts and your earlier syntax errors, see [Day 3 Code](Day%203
 
 The course requests numeric answers, so the entered field contains the number. The complete code is rendered below each question for your study and review.
 
+[← Back to index](../README.md#day-3-assignments) · [This day’s contents](#contents)
+
 ## Assignment 11: Current through series resistors
 
-![Assignment 11: actual question and filled draft](images/assignment-11-draft.jpg)
+![Assignment 11: actual question and filled draft](../images/assignment-11-draft.jpg)
 
 **Problem:** Calculate current through series resistors of 10 ohms and 5 ohms with 30 V across the combination. Store and print the result in amperes.
 
@@ -64,9 +68,11 @@ Your final expression `$voltage * $totalr` was valid Tcl multiplication, but it 
 
 Your earlier bracket-only forms tried to execute `voltage` or `30` as a command. The completed expression explicitly calls `expr`, stores its result in `total_current`, and then prints it.
 
+[← Back to index](../README.md#day-3-assignments) · [This day’s contents](#contents)
+
 ## Assignment 12: Rise and fall delays: requested total
 
-![Assignment 12: actual question and filled draft](images/assignment-12-draft.jpg)
+![Assignment 12: actual question and filled draft](../images/assignment-12-draft.jpg)
 
 **Problem:** The question gives 3 ns and 4 ns and asks for their total propagation delay, stored in a variable and printed in nanoseconds.
 
@@ -93,9 +99,11 @@ Your final addition returns `7`, and the draft preserves it. The braced expressi
 
 Your earlier `puts propdelay ...` treated `propdelay` as an output channel. After `unset propdelay`, `$propdelay` could not be read until you assigned it again. Store using the name `propdelay`, then print its value using `$propdelay`.
 
+[← Back to index](../README.md#day-3-assignments) · [This day’s contents](#contents)
+
 ## Assignment 13: Power in milliwatts
 
-![Assignment 13: actual question and filled draft](images/assignment-13-draft.jpg)
+![Assignment 13: actual question and filled draft](../images/assignment-13-draft.jpg)
 
 **Problem:** Calculate power for a 1.8 V supply and 5 mA current, store and print the result, and report milliwatts.
 
@@ -126,9 +134,11 @@ The numeric current `5` represents milliamperes in this script, so the resulting
 
 Your earlier expression `{current * supply}` used bare words. Adding the dollar signs made `expr` read the stored numeric values; that correction is preserved.
 
+[← Back to index](../README.md#day-3-assignments) · [This day’s contents](#contents)
+
 ## Assignment 14: Period of a 200 MHz clock
 
-![Assignment 14: actual question and filled draft](images/assignment-14-draft.jpg)
+![Assignment 14: actual question and filled draft](../images/assignment-14-draft.jpg)
 
 **Problem:** Calculate the period of a 200 MHz clock, store and print it, and report nanoseconds.
 
@@ -156,9 +166,11 @@ $$
 
 The conversion factor carries the MHz-to-nanosecond relationship. A bare `1 / 200` with integer operands would return `0`, and would also omit the requested unit conversion. The complete calculation uses `1000.0 / 200.0` and produces `5.0` nanoseconds.
 
+[← Back to index](../README.md#day-3-assignments) · [This day’s contents](#contents)
+
 ## Assignment 15: Transistor count for four full adders
 
-![Assignment 15: actual question and filled draft](images/assignment-15-draft.jpg)
+![Assignment 15: actual question and filled draft](../images/assignment-15-draft.jpg)
 
 **Problem:** Use the problem's count of 28 transistors per full adder and four full adders in the ripple-carry adder. Store and print the integer total.
 
@@ -187,9 +199,11 @@ $$
 
 The multiplication returns an integer because both inputs are integers. The code stores that result in `transistor_total` before printing it, meeting both requirements in the question.
 
+[← Back to index](../README.md#day-3-assignments) · [This day’s contents](#contents)
+
 ## Assignment 16: RC transition time: convert, then round
 
-![Assignment 16: actual question and filled draft](images/assignment-16-draft.jpg)
+![Assignment 16: actual question and filled draft](../images/assignment-16-draft.jpg)
 
 **Problem:** Use the supplied formula with 500 ohms and 2 picofarads, calculate the time in nanoseconds, and round that result to the nearest integer.
 
@@ -222,10 +236,12 @@ The unrounded result is about `0.693147` nanoseconds. Rounding in the requested 
 
 The order matters: round the nanosecond value, rather than the tiny value expressed in seconds. Multiplying the numbers `500` and `2` without the picofarad conversion would also produce a result in the wrong unit.
 
+[← Back to index](../README.md#day-3-assignments) · [This day’s contents](#contents)
+
 ## References and review
 
 The original questions and numeric-answer format come from the course linked above. Command behavior was checked against the official Tcl 8.6 manuals for [expr](https://www.tcl-lang.org/man/tcl8.6/TclCmd/expr.htm) and [mathematical functions](https://www.tcl-lang.org/man/tcl8.6/TclCmd/mathfunc.htm).
 
-All fields remain drafts in their open tabs. Review the values and code before using the course’s Submit button yourself.
+The screenshots record the filled, unsubmitted drafts at review time. Review the values and code before using the course’s Submit button yourself.
 
-[Return to contents](#contents) · [Day 3 code and notes](Day%203%20Code.md)
+[← Back to index](../README.md#day-3-assignments) · [This day’s contents](#contents)

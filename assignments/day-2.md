@@ -1,10 +1,12 @@
 # Day 2 — Assignment review and drafts
 
+[← Back to index](../README.md#day-2-assignments) · [Code and notes](../codes/day-2.md)
+
 **Reviewed 4 October 2026 · Tcl 8.6.18 · drafts entered, not submitted**
 
-These questions were read in your [Namaste FPGA course](https://namaste-fpga.com/student/learn/37?contentId=1801) and compared with your [console session](../.sources/day-1-to-3-console.txt). Each numeric answer is entered in its own Chrome tab for you to review and submit. The screenshots below show the actual filled drafts. The scripts were checked locally in Tcl 8.6.18.
+These questions were read in your [Namaste FPGA course](https://namaste-fpga.com/student/learn/37?contentId=1801) and compared with your [console session](../codes/console-session.txt). Each numeric answer was entered in its own Chrome tab for you to review and submit. The screenshots below show the actual filled drafts. The scripts were checked locally in Tcl 8.6.18.
 
-For the lesson concepts and your earlier syntax errors, see [Day 2 Code](Day%202%20Code.md).
+For the lesson concepts and your earlier syntax errors, see [Day 2 Code](../codes/day-2.md).
 
 ## Contents
 
@@ -27,9 +29,11 @@ For the lesson concepts and your earlier syntax errors, see [Day 2 Code](Day%202
 
 The course requests numeric answers, so the entered field contains the number. The complete code is rendered below each question for your study and review.
 
+[← Back to index](../README.md#day-2-assignments) · [This day’s contents](#contents)
+
 ## Assignment 6: Exact special string and its length
 
-![Assignment 6: actual question and filled draft](images/assignment-6-draft.jpg)
+![Assignment 6: actual question and filled draft](../images/assignment-6-draft.jpg)
 
 **Problem:** Store the exact supplied text in `specialString`, protect literal content with grouping, and return its length. Ignore the quotation marks used to describe the value in the question.
 
@@ -62,9 +66,11 @@ Your pasted command stored:
 
 Your `39` was the correct length of that shorter string. The question adds a space after the second `!!` and a `%` before the final `@`, adding two characters. Braces store the supplied text literally, and `string length` returns `41`. Escaping `@` did not fix the transcription difference, because `@` already behaves as ordinary text here.
 
+[← Back to index](../README.md#day-2-assignments) · [This day’s contents](#contents)
+
 ## Assignment 7: Digits equal to 3: sum their indices
 
-![Assignment 7: actual question and filled draft](images/assignment-7-draft.jpg)
+![Assignment 7: actual question and filled draft](../images/assignment-7-draft.jpg)
 
 **Problem:** Use the fixed seven-digit string `3453383`, put each digit in a separate variable, and manually sum the indices containing `3`. The permitted executable commands are only `set` and `puts`.
 
@@ -103,9 +109,11 @@ The matching indices are `0`, `3`, `4`, and `6`; their manual sum is `13`. This 
 
 Your `set var1 '3453383'` included the apostrophes in the stored value. The completed solution stores the seven digits without apostrophes and assigns the seven digit variables manually for this fixed input. Every executable line uses `set` or `puts`; the addition is calculated manually, as the problem requests.
 
+[← Back to index](../README.md#day-2-assignments) · [This day’s contents](#contents)
+
 ## Assignment 8: Compare parameter values with string equal
 
-![Assignment 8: actual question and filled draft](images/assignment-8-draft.jpg)
+![Assignment 8: actual question and filled draft](../images/assignment-8-draft.jpg)
 
 **Problem:** Set `param1` to `LowPower` and `param2` to `HighPerformance`, without the descriptive apostrophes, then return the result of `string equal`.
 
@@ -129,9 +137,11 @@ Your `string equal param1 param2` returned `0`, but it compared the literal name
 
 Your single-quoted declarations also stored literal apostrophes. The clean declarations above use the exact values requested. `string compare $param1 $param2` would return `1` for their ordering; the question asks for `string equal`, whose result is `0`. A matching final number does not by itself prove that the intended operands were used.
 
+[← Back to index](../README.md#day-2-assignments) · [This day’s contents](#contents)
+
 ## Assignment 9: Find LUT6 with string match
 
-![Assignment 9: actual question and filled draft](images/assignment-9-draft.jpg)
+![Assignment 9: actual question and filled draft](../images/assignment-9-draft.jpg)
 
 **Problem:** Store `LUT6 LUT4 FMUX DFF BUFG BRAM REG` as the resource string and use `string match` to test whether it contains `LUT6`, allowing arbitrary text before and after it.
 
@@ -154,9 +164,11 @@ Your final `string match *LUT6* $value` returned `1` and satisfies the requested
 
 Each `*` accepts any number of characters, including zero. Your earlier `?LUT6?` permits exactly one character on either side, so it cannot match this whole resources string. `string match ?primitives?` was missing the input-string argument. The course asks for this substring pattern test, so the complete resources string is tested against `*LUT6*`.
 
+[← Back to index](../README.md#day-2-assignments) · [This day’s contents](#contents)
+
 ## Assignment 10: ASCII value at index 3
 
-![Assignment 10: actual question and filled draft](images/assignment-10-draft.jpg)
+![Assignment 10: actual question and filled draft](../images/assignment-10-draft.jpg)
 
 **Problem:** For `RAM512KB`, read the character at zero-based index `3` and report its ASCII value using the mapping supplied in the question.
 
@@ -187,10 +199,12 @@ Your corrected `string index $memory_block 3` returned the character `5`. The re
 
 The earlier single-quoted value shifted the indices, producing `M` at index `3`. Reversing the `string index` arguments produced a bad-index error, while omitting `$` read the literal word `memory_block` and returned `o`. Your final lookup fixed those errors; the character-code conversion completes the remaining part of the question.
 
+[← Back to index](../README.md#day-2-assignments) · [This day’s contents](#contents)
+
 ## References and review
 
 The original questions and numeric-answer format come from the course linked above. Command behavior was checked against the official Tcl 8.6 manuals for [string](https://www.tcl-lang.org/man/tcl8.6/TclCmd/string.htm) and [scan](https://www.tcl-lang.org/man/tcl8.6/TclCmd/scan.htm).
 
-All fields remain drafts in their open tabs. Review the values and code before using the course’s Submit button yourself.
+The screenshots record the filled, unsubmitted drafts at review time. Review the values and code before using the course’s Submit button yourself.
 
-[Return to contents](#contents) · [Day 2 code and notes](Day%202%20Code.md)
+[← Back to index](../README.md#day-2-assignments) · [This day’s contents](#contents)

@@ -1,5 +1,7 @@
 # Day 1 — Assignment review
 
+[← Back to index](../README.md#day-1-assignments) · [Code and notes](../codes/day-1.md)
+
 **Kapil’s five solutions · reviewed 4 October 2026 · Tcl 8.6.18**
 
 All five final solutions visible in your console screenshots are correct. Assignments 3 and 4 include earlier unsuccessful attempts, followed by correct commands. The review preserves those final solutions and explains the corrections you already made.
@@ -29,9 +31,11 @@ The five questions were opened in your [Namaste FPGA course](https://namaste-fpg
 
 The course shows **numeric answer expected** for each question. The numeric answer column gives the value asked for; the code below explains how you obtained it. Keep `1.0` as displayed for Assignment 4. Review and submit the answers yourself when ready.
 
+[← Back to index](../README.md#day-1-assignments) · [This day’s contents](#contents)
+
 ## Assignment 1: supply voltage
 
-![Assignment 1 question and filled draft](images/assignment-1-draft.jpg)
+![Assignment 1 question and filled draft](../images/assignment-1-draft.jpg)
 
 **Problem:** Create `vdd` with value `5`, representing the supply voltage, and identify the value displayed by the interactive interpreter.
 
@@ -51,9 +55,11 @@ Your screenshot shows this exact command and result. `set` stores `5` and return
 
 **Answer to the question: `5`.**
 
+[← Back to index](../README.md#day-1-assignments) · [This day’s contents](#contents)
+
 ## Assignment 2: clock frequency
 
-![Assignment 2 question and filled draft](images/assignment-2-draft.jpg)
+![Assignment 2 question and filled draft](../images/assignment-2-draft.jpg)
 
 **Problem:** Create `clk_freq` with value `50`, representing 50 MHz, and identify the interpreter’s displayed result.
 
@@ -73,9 +79,11 @@ The screenshot contains this command and result. Your later assignment to `100` 
 
 **Answer to the question: `50`.**
 
+[← Back to index](../README.md#day-1-assignments) · [This day’s contents](#contents)
+
 ## Assignment 3: bus width
 
-![Assignment 3 question and filled draft](images/assignment-3-draft.jpg)
+![Assignment 3 question and filled draft](../images/assignment-3-draft.jpg)
 
 **Problem:** Create `bus_width` with value `64`, representing a 64-bit bus, and identify the interpreter’s displayed result.
 
@@ -107,9 +115,11 @@ The first word of a Tcl command must name a command. Tcl therefore looked for a 
 
 **Answer to the question: `64`.**
 
+[← Back to index](../README.md#day-1-assignments) · [This day’s contents](#contents)
+
 ## Assignment 4: print the supply voltage
 
-![Assignment 4 question and filled draft](images/assignment-4-draft.jpg)
+![Assignment 4 question and filled draft](../images/assignment-4-draft.jpg)
 
 **Problem:** Set `vdd` to `1.0`, representing 1.0 V, then print its value with `puts`.
 
@@ -140,9 +150,11 @@ You corrected both earlier attempts yourself. Keep the final `$vdd` form, with n
 
 **Answer to the question: `1.0`.**
 
+[← Back to index](../README.md#day-1-assignments) · [This day’s contents](#contents)
+
 ## Assignment 5: print the clock frequency
 
-![Assignment 5 question and filled draft](images/assignment-5-draft.jpg)
+![Assignment 5 question and filled draft](../images/assignment-5-draft.jpg)
 
 **Problem:** Set `clk_freq` to `100`, representing 100 MHz, then print its value with `puts`.
 
@@ -163,13 +175,17 @@ Both commands and their results are visible at the end of your second console sc
 
 **Answer to the question: `100`.**
 
+[← Back to index](../README.md#day-1-assignments) · [This day’s contents](#contents)
+
 ## Your console evidence
 
-![Your assignment commands and corrections in the console](images/day-1-console-part-2.png)
+![Your assignment commands and corrections in the console](../images/day-1-console-part-2.png)
 
 This original screenshot contains all five final solutions. It also preserves the unsuccessful attempts for Assignments 3 and 4, so the explanations above can be checked against what you actually typed.
 
-Your wider Day 1 practice, including variable naming, `${res}6`, `incr`, command substitution, and escaping special characters, is documented in [Day 1 Code](Day%201%20Code.md#your-original-practice).
+Your wider Day 1 practice, including variable naming, `${res}6`, `incr`, command substitution, and escaping special characters, is documented in [Day 1 Code](../codes/day-1.md#your-original-practice).
+
+[← Back to index](../README.md#day-1-assignments) · [This day’s contents](#contents)
 
 ## What to revisit before Day 2
 
@@ -178,9 +194,9 @@ No assignment solution is missing from the supplied screenshots. The useful foll
 - **Command versus variable:** `set bus_width 64` uses `set` as the command and `bus_width` as the name. A name alone does not perform assignment.
 - **Name versus value:** write `vdd` when assigning and `$vdd` when reading its value for `puts`.
 - **Interactive result versus printed output:** the console displays the return value of `set`; scripts need explicit `puts` for visible output.
-- **Deleting a variable:** the Day 1 outline includes `unset`, but it is not demonstrated in your screenshots. The [notes include a short example](Day%201%20Code.md#missing-from-the-screenshots-unset-and-execution-order).
-- **Grouping and literal characters:** the first Day 2 lessons on quotes and braces connect directly to your `$5`, `[addr]`, and `\n` practice. The [Day 2 bridge](Day%201%20Code.md#a-short-bridge-to-day-2) explains that connection.
+- **Deleting a variable:** the Day 1 outline includes `unset`, but it is not demonstrated in your screenshots. The [notes include a short example](../codes/day-1.md#missing-from-the-screenshots-unset-and-execution-order).
+- **Grouping and literal characters:** the first Day 2 lessons on quotes and braces connect directly to your `$5`, `[addr]`, and `\n` practice. The [Day 2 bridge](../codes/day-1.md#a-short-bridge-to-day-2) explains that connection.
 
 The five results were verified in fresh Tcl 8.6.18 interpreters. This is a local correctness review, with submission and the course’s final grading left to you.
 
-[Return to contents](#contents) · [Open Day 1 code and notes](Day%201%20Code.md)
+[← Back to index](../README.md#day-1-assignments) · [This day’s contents](#contents)
