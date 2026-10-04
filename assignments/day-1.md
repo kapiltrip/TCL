@@ -35,7 +35,7 @@ The course shows **numeric answer expected** for each question. The numeric answ
 
 ## Assignment 1: supply voltage
 
-![Assignment 1 question and filled draft](../images/assignment-1-draft.jpg)
+<img src="../images/assignment-1-draft.jpg" alt="Assignment 1 question and filled draft" width="1532" height="718">
 
 **Problem:** Create `vdd` with value `5`, representing the supply voltage, and identify the value displayed by the interactive interpreter.
 
@@ -59,7 +59,7 @@ Your screenshot shows this exact command and result. `set` stores `5` and return
 
 ## Assignment 2: clock frequency
 
-![Assignment 2 question and filled draft](../images/assignment-2-draft.jpg)
+<img src="../images/assignment-2-draft.jpg" alt="Assignment 2 question and filled draft" width="1532" height="718">
 
 **Problem:** Create `clk_freq` with value `50`, representing 50 MHz, and identify the interpreter’s displayed result.
 
@@ -83,7 +83,7 @@ The screenshot contains this command and result. Your later assignment to `100` 
 
 ## Assignment 3: bus width
 
-![Assignment 3 question and filled draft](../images/assignment-3-draft.jpg)
+<img src="../images/assignment-3-draft.jpg" alt="Assignment 3 question and filled draft" width="1532" height="718">
 
 **Problem:** Create `bus_width` with value `64`, representing a 64-bit bus, and identify the interpreter’s displayed result.
 
@@ -119,7 +119,7 @@ The first word of a Tcl command must name a command. Tcl therefore looked for a 
 
 ## Assignment 4: print the supply voltage
 
-![Assignment 4 question and filled draft](../images/assignment-4-draft.jpg)
+<img src="../images/assignment-4-draft.jpg" alt="Assignment 4 question and filled draft" width="1532" height="718">
 
 **Problem:** Set `vdd` to `1.0`, representing 1.0 V, then print its value with `puts`.
 
@@ -154,7 +154,7 @@ You corrected both earlier attempts yourself. Keep the final `$vdd` form, with n
 
 ## Assignment 5: print the clock frequency
 
-![Assignment 5 question and filled draft](../images/assignment-5-draft.jpg)
+<img src="../images/assignment-5-draft.jpg" alt="Assignment 5 question and filled draft" width="1532" height="718">
 
 **Problem:** Set `clk_freq` to `100`, representing 100 MHz, then print its value with `puts`.
 
@@ -179,7 +179,7 @@ Both commands and their results are visible at the end of your second console sc
 
 ## Your console evidence
 
-![Your assignment commands and corrections in the console](../images/day-1-console-part-2.png)
+<img src="../images/day-1-console-part-2.png" alt="Your assignment commands and corrections in the console" width="919" height="968">
 
 This original screenshot contains all five final solutions. It also preserves the unsuccessful attempts for Assignments 3 and 4, so the explanations above can be checked against what you actually typed.
 

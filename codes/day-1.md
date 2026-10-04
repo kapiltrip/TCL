@@ -28,13 +28,13 @@ Course: [Foundation Series 3: TCL fundamentals — Day 1](https://namaste-fpga.c
 
 ### Screenshot 1 — variables, increments, and substitutions
 
-![Your Day 1 console, first portion](../images/day-1-console-part-1.png)
+<img src="../images/day-1-console-part-1.png" alt="Your Day 1 console, first portion" width="1260" height="1033">
 
 The console begins with `set var2_3 23` and continues through the assignment variables. The `%` characters are interpreter prompts. The lines beneath commands are results or output; neither belongs in a saved script.
 
 ### Screenshot 2 — continuation and the five assignments
 
-![Your Day 1 console, continuation](../images/day-1-console-part-2.png)
+<img src="../images/day-1-console-part-2.png" alt="Your Day 1 console, continuation" width="919" height="968">
 
 The screenshots overlap. Read them as two views of the same sequence of practice, rather than two separate sets of assignments. The second view includes your final `puts $vdd` and `puts $clk_freq` results.
 
@@ -307,7 +307,7 @@ The third command produced `can not find channel named "$"`. With two ordinary a
 
 Your earlier console screenshot from this conversation also showed these attempts:
 
-![Earlier Day 1 console showing assignment syntax errors](../images/day-1-earlier-console.png)
+<img src="../images/day-1-earlier-console.png" alt="Earlier Day 1 console showing assignment syntax errors" width="1856" height="884">
 
 ```tcl
 int i ; i=5 ;

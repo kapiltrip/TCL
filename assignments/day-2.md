@@ -33,7 +33,7 @@ The course requests numeric answers, so the entered field contains the number. T
 
 ## Assignment 6: Exact special string and its length
 
-![Assignment 6: actual question and filled draft](../images/assignment-6-draft.jpg)
+<img src="../images/assignment-6-draft.jpg" alt="Assignment 6: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Store the exact supplied text in `specialString`, protect literal content with grouping, and return its length. Ignore the quotation marks used to describe the value in the question.
 
@@ -70,7 +70,7 @@ Your `39` was the correct length of that shorter string. The question adds a spa
 
 ## Assignment 7: Digits equal to 3: sum their indices
 
-![Assignment 7: actual question and filled draft](../images/assignment-7-draft.jpg)
+<img src="../images/assignment-7-draft.jpg" alt="Assignment 7: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Use the fixed seven-digit string `3453383`, put each digit in a separate variable, and manually sum the indices containing `3`. The permitted executable commands are only `set` and `puts`.
 
@@ -113,7 +113,7 @@ Your `set var1 '3453383'` included the apostrophes in the stored value. The comp
 
 ## Assignment 8: Compare parameter values with string equal
 
-![Assignment 8: actual question and filled draft](../images/assignment-8-draft.jpg)
+<img src="../images/assignment-8-draft.jpg" alt="Assignment 8: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Set `param1` to `LowPower` and `param2` to `HighPerformance`, without the descriptive apostrophes, then return the result of `string equal`.
 
@@ -141,7 +141,7 @@ Your single-quoted declarations also stored literal apostrophes. The clean decla
 
 ## Assignment 9: Find LUT6 with string match
 
-![Assignment 9: actual question and filled draft](../images/assignment-9-draft.jpg)
+<img src="../images/assignment-9-draft.jpg" alt="Assignment 9: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Store `LUT6 LUT4 FMUX DFF BUFG BRAM REG` as the resource string and use `string match` to test whether it contains `LUT6`, allowing arbitrary text before and after it.
 
@@ -168,7 +168,7 @@ Each `*` accepts any number of characters, including zero. Your earlier `?LUT6?`
 
 ## Assignment 10: ASCII value at index 3
 
-![Assignment 10: actual question and filled draft](../images/assignment-10-draft.jpg)
+<img src="../images/assignment-10-draft.jpg" alt="Assignment 10: actual question and filled draft" width="1532" height="718">
 
 **Problem:** For `RAM512KB`, read the character at zero-based index `3` and report its ASCII value using the mapping supplied in the question.
 

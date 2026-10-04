@@ -35,7 +35,7 @@ The course requests numeric answers, so the entered field contains the number. T
 
 ## Assignment 11: Current through series resistors
 
-![Assignment 11: actual question and filled draft](../images/assignment-11-draft.jpg)
+<img src="../images/assignment-11-draft.jpg" alt="Assignment 11: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Calculate current through series resistors of 10 ohms and 5 ohms with 30 V across the combination. Store and print the result in amperes.
 
@@ -72,7 +72,7 @@ Your earlier bracket-only forms tried to execute `voltage` or `30` as a command.
 
 ## Assignment 12: Rise and fall delays: requested total
 
-![Assignment 12: actual question and filled draft](../images/assignment-12-draft.jpg)
+<img src="../images/assignment-12-draft.jpg" alt="Assignment 12: actual question and filled draft" width="1532" height="718">
 
 **Problem:** The question gives 3 ns and 4 ns and asks for their total propagation delay, stored in a variable and printed in nanoseconds.
 
@@ -103,7 +103,7 @@ Your earlier `puts propdelay ...` treated `propdelay` as an output channel. Afte
 
 ## Assignment 13: Power in milliwatts
 
-![Assignment 13: actual question and filled draft](../images/assignment-13-draft.jpg)
+<img src="../images/assignment-13-draft.jpg" alt="Assignment 13: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Calculate power for a 1.8 V supply and 5 mA current, store and print the result, and report milliwatts.
 
@@ -138,7 +138,7 @@ Your earlier expression `{current * supply}` used bare words. Adding the dollar 
 
 ## Assignment 14: Period of a 200 MHz clock
 
-![Assignment 14: actual question and filled draft](../images/assignment-14-draft.jpg)
+<img src="../images/assignment-14-draft.jpg" alt="Assignment 14: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Calculate the period of a 200 MHz clock, store and print it, and report nanoseconds.
 
@@ -170,7 +170,7 @@ The conversion factor carries the MHz-to-nanosecond relationship. A bare `1 / 20
 
 ## Assignment 15: Transistor count for four full adders
 
-![Assignment 15: actual question and filled draft](../images/assignment-15-draft.jpg)
+<img src="../images/assignment-15-draft.jpg" alt="Assignment 15: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Use the problem's count of 28 transistors per full adder and four full adders in the ripple-carry adder. Store and print the integer total.
 
@@ -203,7 +203,7 @@ The multiplication returns an integer because both inputs are integers. The code
 
 ## Assignment 16: RC transition time: convert, then round
 
-![Assignment 16: actual question and filled draft](../images/assignment-16-draft.jpg)
+<img src="../images/assignment-16-draft.jpg" alt="Assignment 16: actual question and filled draft" width="1532" height="718">
 
 **Problem:** Use the supplied formula with 500 ohms and 2 picofarads, calculate the time in nanoseconds, and round that result to the nearest integer.
 
