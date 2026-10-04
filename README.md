@@ -7,10 +7,11 @@ Each day keeps its lesson notes, code examples, and assignment reviews together.
 | 1 | Variables, substitution, comments, saving scripts | [Day 1](day-1.md) |
 | 2 | Grouping, string tests, indexing, matching, comparison | [Day 2](day-2.md) |
 | 3 | Expressions, logic, bitwise operations, units, rounding | [Day 3](day-3.md) |
+| 4 · in progress | Lists through searching, sorting, and membership | [Day 4](day-4.md) |
 
-The three day pages contain all 16 assignment reviews, original question screenshots, complete solutions, and expected outputs. The recorded answers remain drafts for Kapil to review and submit.
+Days 1–3 contain 16 assignment reviews, original question screenshots, complete solutions, and expected outputs. Day 4 reviews your new list practice through `in` and `ni`, including the unfinished command at the end; Assignments 17–22 have no recorded attempt in that session. Review and submission remain Kapil’s step.
 
-[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Run the code](#run-the-code)
+[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Day 4 index](#day-4) · [Run the code](#run-the-code)
 
 ## Day 1
 
@@ -69,6 +70,29 @@ Expressions and units · [Open the complete day page](day-3.md)
 | [Assignment corrections and completion](day-3.md#assignment-corrections-and-completion) | — |
 | [Complete practice script](day-3.md#complete-practice-script) | — |
 
+## Day 4
+
+Lists · practice through `in` and `ni` · [Open the complete day page](day-4.md)
+
+| Lesson or review | Related practice or assignments |
+| --- | --- |
+| [Progress at a glance](day-4.md#progress-at-a-glance) | Correct results, corrections, and the stopping point |
+| [Create lists and preserve element boundaries](day-4.md#create-lists-and-preserve-element-boundaries) | Braces, quotes, trailing spaces, malformed `listb` |
+| [Nest lists or concatenate their elements](day-4.md#nest-lists-or-concatenate-their-elements) | `list` versus `concat`; outer lengths 2 and 5 |
+| [Employee IDs and nested records](day-4.md#employee-ids-and-nested-records) | Three departments; ID, name, age |
+| [Repeat elements and count a list](day-4.md#repeat-elements-and-count-a-list) | `lrepeat`; why `llength listg` differs from `llength $listg` |
+| [Read nested indices with lindex](day-4.md#read-nested-indices-with-lindex) | Index paths `{0 1}`, `{0 2}`, and the empty `{0 3}` result |
+| [Take a range and assign elements to variables](day-4.md#take-a-range-and-assign-elements-to-variables) | `lrange`, `lassign`, leftovers, and overwritten variables |
+| [Append using the variable name](day-4.md#append-using-the-variable-name) | Why `lappend $lista q` edited a different variable |
+| [Save the results of linsert and lreplace](day-4.md#save-the-results-of-linsert-and-lreplace) | Returned lists and the `replace` spelling error |
+| [Change an element with lset](day-4.md#change-an-element-with-lset) | Update index 0 and print the stored value |
+| [Search for indices or matching values](day-4.md#search-for-indices-or-matching-values) | `-glob`, `-all`, and `-inline` |
+| [Sort text, integers, and real numbers](day-4.md#sort-text-integers-and-real-numbers) | Comparison modes, direction, and the missing input list |
+| [Test membership and save the result](day-4.md#test-membership-and-save-the-result) | Correct `expr` syntax and the unfinished console input |
+| [Names, values, and changed lists](day-4.md#names-values-and-changed-lists) | Command comparison table |
+| [Assignment progress and next lesson](day-4.md#assignment-progress-and-next-lesson) | Assignments 17–22 not attempted in this session; `foreach` is next |
+| [Complete practice script](day-4.md#complete-practice-script) | Corrected examples and verified output |
+
 ## Run the code
 
 Open `internal/scripts` and double-click [start-tcl.cmd](internal/scripts/start-tcl.cmd) to start the white Tcl console. The launcher sets the working directory to the repository root. At the Tcl `%` prompt, run:
@@ -77,6 +101,7 @@ Open `internal/scripts` and double-click [start-tcl.cmd](internal/scripts/start-
 source internal/scripts/day-1.tcl
 source internal/scripts/day-2.tcl
 source internal/scripts/day-3.tcl
+source internal/scripts/day-4.tcl
 ```
 
 In PowerShell opened at the repository root, run a saved script with:
@@ -89,10 +114,10 @@ For the Tk greeting window, double-click [start-gui.cmd](internal/scripts/start-
 
 ## Supporting files
 
-The study pages live at the root. Supporting material lives inside [internal/](internal/README.md): screenshots, runnable scripts, the original console transcript, and runtime provenance. Local installers, interpreter libraries, checks, and previews also stay there and are excluded from Git.
+The study pages live at the root. Supporting material lives inside [internal/](internal/README.md): screenshots, runnable scripts, original console transcripts, and runtime provenance. Local installers, interpreter libraries, checks, and previews also stay there and are excluded from Git.
 
 This local folder uses portable Tcl/Tk 8.6.18 from [Magicsplat Tcl/Tk for Windows](https://www.magicsplat.com/tcl-installer/), listed by the [Tcl project](https://www.tcl-lang.org/software/tcltk/bindist.html). See the [installation details](internal/runtime/installation.json). The `.cmd` launchers use `internal/runtime/bin` and `internal/runtime/lib`; a fresh clone needs that runtime layout or an existing Tcl/Tk installation, for example `tclsh internal/scripts/day-1.tcl`.
 
 Use Tcl/Tk for these scripts and GUI exercises. Use Vivado’s Tcl console for FPGA commands such as `create_project` and `synth_design`; see [AMD’s Tcl shell documentation](https://docs.amd.com/r/2025.1-English/ug895-vivado-system-level-design-entry/Launching-the-Vivado-Design-Suite-Tcl-Shell).
 
-[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3)
+[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Day 4 index](#day-4)
