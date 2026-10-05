@@ -1,4 +1,6 @@
 {
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
   "terminal.integrated.cwd": "${workspaceFolder}",
   "terminal.integrated.env.windows": {
     "PATH": "${workspaceFolder}\\internal\\runtime\\bin;${env:PATH}",
