@@ -1,0 +1,15 @@
+{
+  "terminal.integrated.cwd": "${workspaceFolder}",
+  "terminal.integrated.env.windows": {
+    "PATH": "${workspaceFolder}\\internal\\runtime\\bin;${env:PATH}",
+    "TCL_LIBRARY": "${workspaceFolder}/internal/runtime/lib/tcl8.6",
+    "TK_LIBRARY": "${workspaceFolder}/internal/runtime/lib/tk8.6",
+    "TCLLIBPATH": null
+  },
+  "terminal.integrated.profiles.windows": {
+    "Tcl": {
+      "path": "${workspaceFolder}\\internal\\runtime\\bin\\tclsh.exe",
+      "overrideName": true
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Tcl: Run current file",
+      "type": "process",
+      "command": "${workspaceFolder}\\internal\\runtime\\bin\\tclsh.exe",
+      "args": ["${file}"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "TCL_LIBRARY": "${workspaceFolder}/internal/runtime/lib/tcl8.6",
+          "TK_LIBRARY": "${workspaceFolder}/internal/runtime/lib/tk8.6",
+          "TCLLIBPATH": ""
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true,
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

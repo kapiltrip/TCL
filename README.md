@@ -142,6 +142,32 @@ Conditionals and loops · reviewed from your 5 October console session · [Open 
 
 ## Run the code
 
+For a record of the launchers, VS Code settings, and verification, see [What I did: Tcl and VS Code setup](what-i-did.md).
+
+Save your programs with the `.tcl` extension. Your first program is [proj1.tcl](proj1.tcl). In PowerShell opened in this folder, run it with the root-level launcher:
+
+```powershell
+.\tclsh.cmd .\proj1.tcl
+```
+
+To enter Tcl commands interactively, start the interpreter:
+
+```powershell
+.\tclsh.cmd
+```
+
+At the Tcl `%` prompt, try the following. Use `exit` to return to PowerShell.
+
+```tcl
+puts "Hello world"
+set a 10
+puts [expr {$a + 5}]
+source proj1.tcl
+exit
+```
+
+When this folder is open in VS Code, save the active `.tcl` file with **Ctrl+S**, then press **Ctrl+Shift+B** to run it. Open a new terminal after loading the workspace settings; it will also accept `tclsh .\proj1.tcl` and `tclsh`. For a terminal that opens directly at the Tcl `%` prompt, choose **Tcl** from the terminal profile menu. These settings are stored in [.vscode/settings.json](.vscode/settings.json) and [.vscode/tasks.json](.vscode/tasks.json); see the VS Code documentation for [terminal profiles](https://code.visualstudio.com/docs/terminal/profiles) and [tasks](https://code.visualstudio.com/docs/debugtest/tasks).
+
 Open `internal/scripts` and double-click [start-tcl.cmd](internal/scripts/start-tcl.cmd) to start the white Tcl console. The launcher sets the working directory to the repository root. At the Tcl `%` prompt, run:
 
 ```tcl
@@ -156,7 +182,7 @@ source internal/scripts/day-6.tcl
 In PowerShell opened at the repository root, run a saved script with:
 
 ```powershell
-.\internal\scripts\tclsh.cmd .\internal\scripts\day-1.tcl
+.\tclsh.cmd .\internal\scripts\day-1.tcl
 ```
 
 For the Tk greeting window, double-click [start-gui.cmd](internal/scripts/start-gui.cmd). Edit a `.tcl` file and press **Ctrl+S** to save; run it again to see your changes. The [Day 1 saving and comments section](day-1.md#save-scripts-and-write-comments) explains the steps and comment syntax.
