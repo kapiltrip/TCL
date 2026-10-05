@@ -2,6 +2,8 @@
 
 Each day keeps its lesson notes, code examples, and review together. Questions link to the lesson they use; **← Back to index** links return here. The root-level [ideas.md](ideas.md) collects the remaining assignment approaches, with links back to those explanations.
 
+Your [Tcl Q&A](qna.md) collects the logic questions from our discussions, with corrected examples on comments, namespace variables, procedures, substitution, and `expr`.
+
 | Day | Topics | Study page |
 | --- | --- | --- |
 | 1 | Variables, substitution, comments, saving scripts | [Day 1](day-1.md) |
