@@ -1,4 +1,5 @@
-# Run from PowerShell: .\tclsh.cmd .\examples\hello.tcl
+# From the repository root in PowerShell:
+# .\internal\scripts\tclsh.cmd .\internal\scripts\hello.tcl
 
 set name "Kapil"
 puts "Hello, $name!"

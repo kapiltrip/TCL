@@ -1,6 +1,6 @@
 # Tcl/Tk practice
 
-Each day keeps its lesson notes, code examples, and assignment reviews together. Questions appear beside the lesson they use; **Related lesson** links return to that explanation, and **← Back to index** links return here.
+Each day keeps its lesson notes, code examples, and review together. Questions link to the lesson they use; **← Back to index** links return here. The root-level [ideas.md](ideas.md) collects the remaining assignment approaches, with links back to those explanations.
 
 | Day | Topics | Study page |
 | --- | --- | --- |
@@ -8,10 +8,12 @@ Each day keeps its lesson notes, code examples, and assignment reviews together.
 | 2 | Grouping, string tests, indexing, matching, comparison | [Day 2](day-2.md) |
 | 3 | Expressions, logic, bitwise operations, units, rounding | [Day 3](day-3.md) |
 | 4 · assignments remain | Lists, foreach, split, regexp, captured fields, regsub | [Day 4](day-4.md) |
+| 5 · assignments remain | Arrays, keys and values, copying, list conversion | [Day 5](day-5.md) |
+| 6 · assignments remain | source, if/elseif/else, switch, while, for | [Day 6](day-6.md) |
 
-Days 1–3 contain 16 assignment reviews, original question screenshots, complete solutions, and expected outputs. Day 4 now covers your practice through `regsub`, with its mistakes and corrections. Assignments 17–22 remain; the preliminary Q17 experiments are reviewed beside sorting. Review and submission remain Kapil’s step.
+Days 1–3 retain 16 earlier assignment reviews and their saved solutions. Days 4–6 review your pasted practice through arrays, conditionals, and loops, with corrected runnable examples and checked output. [Ideas for Assignments 17–33](ideas.md#index) explain the approach and checks for each question, without final answers or completed assignment programs. You implement, review, and submit those assignments.
 
-[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Day 4 index](#day-4) · [Run the code](#run-the-code)
+[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Day 4 index](#day-4) · [Day 5 index](#day-5) · [Day 6 index](#day-6) · [Assignment ideas](ideas.md#index) · [Run the code](#run-the-code)
 
 ## Day 1
 
@@ -100,6 +102,44 @@ Lists and regular expressions · practice through `regsub` · assignments remain
 | [Assignment progress and next lesson](day-4.md#assignment-progress-and-next-lesson) | Lessons through `regsub` done; Assignments 17–22 remain |
 | [Complete practice script](day-4.md#complete-practice-script) | Corrected examples and verified output |
 
+Day 4 assignment approaches: [Q17 · unique capacitances](ideas.md#assignment-17-unique-capacitance-values), [Q18 · reversal and positions](ideas.md#assignment-18-second-position-after-reversing-a-list), [Q19 · selected widths](ideas.md#assignment-19-sum-widths-above-a-strict-limit), [Q20 · running power limit](ideas.md#assignment-20-accumulate-power-under-a-running-limit), [Q21 · non-faulty IDs](ideas.md#assignment-21-count-non-faulty-transistors-with-in), [Q22 · numeric suffixes](ideas.md#assignment-22-count-net-names-with-numeric-suffixes).
+
+## Day 5
+
+Arrays · reviewed from your 5 October console session · [Open the complete day page](day-5.md)
+
+| Lesson or review | Related ideas or practice |
+| --- | --- |
+| [Progress at a glance](day-5.md#progress-at-a-glance) | Correct attempts and corrections |
+| [Create an array and update an element](day-5.md#create-an-array-and-update-an-element) | `array exists`, `array size`, updates, and clearing |
+| [Read an element and construct a dynamic key](day-5.md#read-an-element-and-construct-a-dynamic-key) | Command names, values, and the trailing-space key |
+| [Enumerate keys and preserve key-value pairs](day-5.md#enumerate-keys-and-preserve-key-value-pairs) | [Q24 · largest leakage cell](ideas.md#assignment-24-cell-with-the-highest-leakage-current), [Q25 · parallel resistance](ideas.md#assignment-25-parallel-pmos-resistance) |
+| [Copy and print an array](day-5.md#copy-and-print-an-array) | Independent copies, merge behavior, and `parray` |
+| [Convert parallel lists into an array](day-5.md#convert-parallel-lists-into-an-array) | [Q26 · indexed lengths and average](ideas.md#assignment-26-indexed-interconnects-and-an-average-filter) |
+| [Convert an array into aligned key and value lists](day-5.md#convert-an-array-into-aligned-key-and-value-lists) | [Q27 · maximum gate power](ideas.md#assignment-27-largest-gate-power-from-a-value-list), inconsistent names in your attempt |
+| [Store a structured value under an identity key](day-5.md#store-a-structured-value-under-an-identity-key) | [Q23 · transistor W/L ratios](ideas.md#assignment-23-transistor-width-to-length-ratios) |
+| [Assignment map and next lesson](day-5.md#assignment-map-and-next-lesson) | All five Day 5 approaches |
+| [Complete practice script](day-5.md#complete-practice-script) | Corrected examples and verified output |
+
+## Day 6
+
+Conditionals and loops · reviewed from your 5 October console session · [Open the complete day page](day-6.md)
+
+| Lesson or review | Related ideas or practice |
+| --- | --- |
+| [Progress at a glance](day-6.md#progress-at-a-glance) | Working examples and remaining syntax issues |
+| [Run a saved script with source](day-6.md#run-a-saved-script-with-source) | Actual filenames, `.tcl.txt`, and paths relative to a saved script |
+| [Separate the condition from the script body](day-6.md#separate-the-condition-from-the-script-body) | The corrected voting and equality examples |
+| [if elseif and else](day-6.md#if-elseif-and-else) | [Q28 · inclusive voltage range](ideas.md#assignment-28-count-nodes-in-an-inclusive-voltage-range), [Q29 · resistance bands](ideas.md#assignment-29-transform-and-sum-resistance-values) |
+| [Match literal values with switch](day-6.md#match-literal-values-with-switch) | [Q32 · sampling-rate multipliers](ideas.md#assignment-32-switch-selected-sampling-rate-multipliers) |
+| [Match filename patterns and regular expressions](day-6.md#match-filename-patterns-and-regular-expressions) | Corrected `.jpg`/`.txt` labels and matching modes |
+| [Share switch bodies and handle whitespace deliberately](day-6.md#share-switch-bodies-and-handle-whitespace-deliberately) | `-- $z`, trailing spaces, shared bodies, and comments |
+| [Repeat with while and a changing condition](day-6.md#repeat-with-while-and-a-changing-condition) | [Q30 · reverse digits](ideas.md#assignment-30-reverse-a-number-one-digit-at-a-time), [Q31 · count digits](ideas.md#assignment-31-count-digits-with-while) |
+| [Repeat with for and an optional initializer](day-6.md#repeat-with-for-and-an-optional-initializer) | [Q33 · factorial](ideas.md#assignment-33-factorial-with-a-loop), your valid final correction |
+| [Choose an accumulator and verify loop boundaries](day-6.md#choose-an-accumulator-and-verify-loop-boundaries) | Counts, sums, products, and termination |
+| [Assignment map and stopping point](day-6.md#assignment-map-and-stopping-point) | All six Day 6 approaches |
+| [Complete practice script](day-6.md#complete-practice-script) | Corrected examples and verified output |
+
 ## Run the code
 
 Open `internal/scripts` and double-click [start-tcl.cmd](internal/scripts/start-tcl.cmd) to start the white Tcl console. The launcher sets the working directory to the repository root. At the Tcl `%` prompt, run:
@@ -109,6 +149,8 @@ source internal/scripts/day-1.tcl
 source internal/scripts/day-2.tcl
 source internal/scripts/day-3.tcl
 source internal/scripts/day-4.tcl
+source internal/scripts/day-5.tcl
+source internal/scripts/day-6.tcl
 ```
 
 In PowerShell opened at the repository root, run a saved script with:
@@ -127,4 +169,4 @@ This local folder uses portable Tcl/Tk 8.6.18 from [Magicsplat Tcl/Tk for Window
 
 Use Tcl/Tk for these scripts and GUI exercises. Use Vivado’s Tcl console for FPGA commands such as `create_project` and `synth_design`; see [AMD’s Tcl shell documentation](https://docs.amd.com/r/2025.1-English/ug895-vivado-system-level-design-entry/Launching-the-Vivado-Design-Suite-Tcl-Shell).
 
-[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Day 4 index](#day-4)
+[Day 1 index](#day-1) · [Day 2 index](#day-2) · [Day 3 index](#day-3) · [Day 4 index](#day-4) · [Day 5 index](#day-5) · [Day 6 index](#day-6) · [Assignment ideas](ideas.md#index)

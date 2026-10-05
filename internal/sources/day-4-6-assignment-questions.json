@@ -1,0 +1,143 @@
+{
+  "course": "Foundation Series 3: TCL fundamentals",
+  "source": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+  "readOn": "2026-10-05",
+  "questions": [
+    {
+      "assignment": 17,
+      "day": 4,
+      "question": "In a CMOS inverter design, you have a list of capacitance values measured at different nodes: 12, 8, 15, 7, 8, 10, 12, 8, and 5 femtofarads. Use an appropriate Tcl list command to determine the total number of unique capacitance values used in the design.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-17-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 18,
+      "day": 4,
+      "question": "A CMOS memory cell uses various bitline capacitances in picofarads: 12, 15, 18, 20, 12, and 18. Use a Tcl list command to reverse the order of this list, then find the value present at the second position of the reversed list and return that value as a single integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-18-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 19,
+      "day": 4,
+      "question": "You are given a list representing the widths (in nanometers) of different MOSFETs used in a CMOS design: 120, 150, 180, 200, 150, and 100. Use the foreach command to iterate through the list, adding up all widths that are greater than 130 nanometers, and then return the total sum as a single integer. Usage of ternary operator is allowed.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-19-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 20,
+      "day": 4,
+      "question": "In a VLSI design, you are given a list representing the power consumption (in milliwatts) of different modules at various operating conditions: 120, 250, 300, 450, 200, and 150. Your task is to use the foreach command to calculate the total power consumption for all modules, but only include the values that would keep the total below a threshold of 800 milliwatts. Return the final accumulated power consumption as a single integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-20-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 21,
+      "day": 4,
+      "question": "In a CMOS design, you have a list of faulty transistor IDs identified during testing: 101, 102, 105, 110, and 115. You also have a list of all transistor IDs in a specific module: 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, and 115. Use the foreach command and the in operator to add 1 to a count for each non-faulty transistor, and return the total count as a single integer, without using any conditional loops.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-21-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 22,
+      "day": 4,
+      "question": "In a CMOS design report, you have a list of net names that follow the format 'net123', 'clk_45', 'rst100', 'data_250', and 'ctrl32'. Use the regexp command with foreach to count how many of these net names contain only numbers at the end of the name. Return this count as a single integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-22-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 23,
+      "day": 5,
+      "question": "In a CMOS circuit design, multiple transistors are used to form different logic gates, and the drive strength of a gate plays a critical role in determining the circuit's performance and speed. This drive strength depends on the width-to-length (W/L) ratio of each transistor used in the gate. You are given the task of analyzing a CMOS logic gate with four transistors, where the width and length values for each transistor are provided. You need to write a Tcl script that initializes an array named transistor_parameters, which contains entries representing the width and length of four transistors with the following values: Transistor T1 has a width of 4.5 and a length of 1.2, Transistor T2 has a width of 3.2 and a length of 1.6, Transistor T3 has a width of 5.0 and a length of 2.0, and Transistor T4 has a width of 3.8 and a length of 1.9. The goal is to calculate the 'effective drive strength' of the logic gate, defined as the sum of the (Width/Length) ratios for all transistors that have a W/L ratio greater than 2. Finally, your script should return the rounded integer value of this effective drive strength.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-23-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 24,
+      "day": 5,
+      "question": "In a CMOS memory design, various memory cells have different leakage current values (in nanoamperes, nA) that are stored in an array named leakage_current. The array has the following values: Cell C1 has a leakage current of 2.5 nA, Cell C2 has 3.8 nA, Cell C3 has 1.9 nA, Cell C4 has 4.2 nA, Cell C5 has 3.1 nA, and Cell C6 has 2.7 nA. Your task is to write a Tcl script that uses the array get command to extract all the key-value pairs and the array names command to find the cell with the highest leakage current. Return the cell name that has the highest leakage current as a single integer representing the cell's numeric ID (e.g., for Cell C1, return 1).",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-24-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 25,
+      "day": 5,
+      "question": "In a CMOS pull-up network, multiple PMOS transistors are arranged in a way that determines the overall resistance of the network, which affects the switching characteristics of the circuit. Six PMOS transistors are used, and their resistance values (in kilo-ohms) are as follows: Transistor P1 has a resistance of 4.0 kilo-ohms, P2 has 6.2 kilo-ohms, P3 has 5.0 kilo-ohms, P4 has 3.5 kilo-ohms, P5 has 7.1 kilo-ohms, and P6 has 2.8 kilo-ohms. Store these resistance values in a Tcl array named resistance_array. Your task is to calculate the total effective resistance for all transistors with resistance values less than 5 kilo-ohms, assuming they are connected in parallel. Finally, return the total resistance in kilo-ohms rounded to the nearest integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-25-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 26,
+      "day": 5,
+      "question": "In a CMOS circuit, the lengths of metal interconnects between different circuit components are crucial for determining signal propagation delays. You have a list of interconnect lengths (in micrometers, µm) stored as follows: {5.2 7.1 4.3 6.5 3.8 8.2 4.9}. Your task is to write a Tcl script that converts this list into an array named interconnect_lengths, where the keys are the indices of each element starting from 1. Then, calculate the sum of all lengths that are greater than the average length of the interconnects. Finally, return the result as a single integer value rounded to the nearest integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-26-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 27,
+      "day": 5,
+      "question": "In a VLSI design, multiple logic gates are used, and each gate has an associated power consumption value (in microwatts, µW). These power values are stored in a Tcl array named gate_power with the keys representing the gate IDs (G1 to G6) and the following values: G1 = 15.3 µW, G2 = 22.8 µW, G3 = 18.6 µW, G4 = 30.2 µW, G5 = 12.5 µW, and G6 = 25.4 µW. Your task is to write a Tcl script that converts this array into a list of power values. Then, identify the maximum power in µW value from the list and return it as a single integer value rounded to the nearest integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-27-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 28,
+      "day": 6,
+      "question": "You are given a list of voltage levels (in millivolts) measured across different nodes of a CMOS circuit: 1200, 1500, 1800, 1100, and 950. Use if-else statements to iterate through each voltage level and count how many nodes are operating within the safe range of 1000 to 1600 millivolts, inclusive. Return the total count as a single integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-28-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 29,
+      "day": 6,
+      "question": "In a VLSI design, you have a list of resistances in ohms measured across different paths: 120, 300, 75, 450, 180, and 220; using if-else statements, calculate the total resistance where resistances below 100 ohms are multiplied by 2, those between 100 and 200 (inclusive) have 50 added, and those above 200 have 30 subtracted, then return the sum of all modified resistance values as a single integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-29-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 30,
+      "day": 6,
+      "question": "Write a TCL script to take the user?s input and iteratively extract each digit from the end of the number, constructing the reversed version one digit at a time. Finally, the script should display the reversed number. Create variable var1 and add value of 347892 to it. use this value in your code and share result return after reversal.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-30-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 31,
+      "day": 6,
+      "question": "Write a Tcl script using a while loop to count the number of digits in a given integer. For example, if the input is 4578, the output should be 4. Feed value 567890 to your logic and share number return by your code.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-31-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 32,
+      "day": 6,
+      "question": "In an FPGA-based signal processing application, you have a list of sampling rates (in kHz) for different channels: 8, 16, 32, 24, and 48. Using the switch command, assign a multiplier based on the sampling rate: if 8, assign 2; if 16, assign 4; if 32, assign 6; if 24, assign 3; and if 48, assign 5. Multiply these values together as you iterate through the list and return the final product as a single integer.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-32-question.png",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "assignment": 33,
+      "day": 6,
+      "question": "Write a Tcl script that calculates factorial of number given by user. Create a variable a and add value of 7 to it.Use this variable to test your logic. Finally, the script should display the result of the factorial calculation. What is value returned by code for 7.",
+      "url": "https://namaste-fpga.com/student/learn/37?contentId=1801",
+      "image": "internal/images/assignment-33-question.png",
+      "checkedOn": "2026-10-05"
+    }
+  ]
+}

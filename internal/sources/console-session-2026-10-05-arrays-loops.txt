@@ -1,0 +1,308 @@
+Tcl practice console
+Try: puts "Hello, Kapil!"
+Run the example: source internal/scripts/hello.tcl
+Close the console: exit
+
+% array set arr1 {}
+% array exist arr1
+1
+% array size arr1
+0
+% set arr1(0) abc
+abc
+% array size arr1
+1
+% array set arr1 {
+  0 abc
+  1 def
+  2 ghi
+  3 jkl
+}
+% array size arr1
+4
+% set arr1(4) mno
+mno
+% set arr1(4) jkl
+jkl
+% $arr1(0)
+invalid command name "abc"
+% $arr1(0)
+invalid command name "abc"
+% puts $arr1(0)
+abc
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+% puts $arr1(1)
+def
+% set a 3
+3
+% puts "$arr1($a )"
+can't read "arr1(3 )": no such element in array
+% puts "$arr1($a)"
+jkl
+% array name arr1
+4 0 1 2 3
+% lsort [array name arr1]
+0 1 2 3 4
+% array get arr1
+4 jkl 0 abc 1 def 2 ghi 3 jkl
+% array exists arr1
+1
+% parray arr1
+arr1(0) = abc
+arr1(1) = def
+arr1(2) = ghi
+arr1(3) = jkl
+arr1(4) = jkl
+% array set arr2 [array get arr1]
+% parray arr2
+arr2(0) = abc
+arr2(1) = def
+arr2(2) = ghi
+arr2(3) = jkl
+arr2(4) = jkl
+% parray arr1
+arr1(0) = abc
+arr1(1) = def
+arr1(2) = ghi
+arr1(3) = jkl
+arr1(4) = jkl
+% array arr1(4) abcd
+unknown or ambiguous subcommand "arr1(4)": must be anymore, donesearch, exists, get, names, nextelement, set, size, startsearch, statistics, or unset
+% array $arr1(4) abcd
+unknown or ambiguous subcommand "jkl": must be anymore, donesearch, exists, get, names, nextelement, set, size, startsearch, statistics, or unset
+% set array $arr1(4) abcd
+wrong # args: should be "set varName ?newValue?"
+% set arr1(4) abcd
+abcd
+% parray arr1
+arr1(0) = abc
+arr1(1) = def
+arr1(2) = ghi
+arr1(3) = jkl
+arr1(4) = abcd
+% array set arr4 {}
+% array exist arr4
+1
+% set list1 [list 0 1 2 3 ]
+0 1 2 3
+% set list2 [list a b c d ]
+a b c d
+% foreach i $list1 j $list2 {
+  set arr4($i) $j ;
+}
+% array size arr4
+4
+% parray arr4
+arr4(0) = a
+arr4(1) = b
+arr4(2) = c
+arr4(3) = d
+% array get arr4
+0 a 1 b 2 c 3 d
+% set values {}
+% set key {}
+% foreach {i j} [array get arr4] {
+
+  lappend key $i
+  lappend value $j
+}
+% puts $values
+
+% puts $value
+a b c d
+% puts $keys
+can't read "keys": no such variable
+% puts $key
+0 1 2 3
+% #assignment 23
+% set array ratios {
+
+  5.0 2.0
+  3.2 1.6
+  5.0 2.0
+  3.8 1.9
+}
+wrong # args: should be "set varName ?newValue?"
+% array set ratios {
+  4.5 1.2
+  3.2 1.6
+  5.0 2.0
+  3.8 1.9
+}
+% set w {}
+% set l {}
+% array get ratios
+3.8 1.9 5.0 2.0 3.2 1.6 4.5 1.2
+% set {w l } [array get ratios ]
+3.8 1.9 5.0 2.0 3.2 1.6 4.5 1.2
+% puts $w
+
+% #conditional loops
+% cd C:/Users/kapil/OneDrive/Desktop/TCL
+% pwd
+C:/Users/kapil/OneDrive/Desktop/TCL
+% source
+wrong # args: should be "source ?-encoding name? fileName"
+% ls
+ambiguous command name "ls": lsearch lset lsort
+% source proj_1.tcl
+couldn't read file "proj_1.tcl": no such file or directory
+% source proj1.tcl
+couldn't read file "proj1.tcl": no such file or directory
+% set age 18
+18
+% if {$age >= 18 }{}
+extra characters after close-brace
+%
+% if {$age >= 18 }{
+extra characters after close-brace
+% if ($age >= 18){
+unbalanced open paren
+in expression "(18"
+%
+% if ($age >= 18){
+unbalanced open paren
+in expression "(18"
+%
+%
+%
+%
+% if {$age >= 18}{
+extra characters after close-brace
+% if {$age >= 18} {
+  puts "You are eligible for voting"
+} else {
+  puts "You are not eligible for voting "
+}
+You are eligible for voting
+% set x 5
+5
+% if {$x==5} {
+  puts "X is equal to 5"
+} else {
+  puts "x is not equal to 5 "
+}
+X is equal to 5
+% set grade b
+b
+% switch $grade {
+  a {puts "well done " }
+  b {puts "Could be better , good "}
+  c {puts "Try better next time "}
+  default {puts "attempt next time "}
+}
+Could be better , good
+% switch -exact $grade {
+  "apple" {puts "its an apple "}
+
+  "banana" {puts "its a banana "}
+  default {puts "select a fruit "}
+
+}
+select a fruit
+% set grade banana
+banana
+% switch -exact $grade {
+  "apple" {puts "its an apple "}
+  "banana" {puts "its a banana "}
+  default {puts "select a fruit "}
+  }
+its a banana
+% set y "Filetype.jpg"
+Filetype.jpg
+% switch -glob -- $y {
+  "*.jpg" {puts "ITs a text file "}
+  "*.txt" {puts "ITs a jpg file "}
+  default {puts "none matches "}
+}
+ITs a text file
+% set z "apple "
+apple
+% switch -exact --$z {
+
+  "apple" -
+  "Banana" -
+  "Orange" {puts "Fruits"}
+  "Kohinoor" -
+  "Emrald" {puts "Stones"}
+}
+% set z "apple"
+apple
+%   "apple" -
+invalid command name "apple"
+% switch -glob -- $y {
+switch -exact --$z {
+  "apple" -
+  "Banana" -
+  "Orange" {puts "Fruits"}
+  "Emrald" {puts "Stones"}
+}
+
+}
+% switch -exact --$z {
+  "apple" -
+  "Banana" -
+  "Orange" {puts "Fruits"}
+  "Kohinoor" -
+  "Emrald" {puts "Stones"}
+}
+% set a 10
+10
+% while {$a < 20} {
+  puts "Value of a : $a "
+  incr a
+}
+Value of a : 10
+Value of a : 11
+Value of a : 12
+Value of a : 13
+Value of a : 14
+Value of a : 15
+Value of a : 16
+Value of a : 17
+Value of a : 18
+Value of a : 19
+% for {set i 0} {$i < 10 } {incr i} {
+  puts "Value for i is : $i " ;
+}
+Value for i is : 0
+Value for i is : 1
+Value for i is : 2
+Value for i is : 3
+Value for i is : 4
+Value for i is : 5
+Value for i is : 6
+Value for i is : 7
+Value for i is : 8
+Value for i is : 9
+% set b 0
+0
+% for {} {$b < 10} {incr b}{
+extra characters after close-brace
+%
+% for {} {$b < 10} {incr b} {
+  puts $b
+}

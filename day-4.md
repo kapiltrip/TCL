@@ -1,6 +1,6 @@
 # Day 4 — Tcl lists: notes, code, and practice review
 
-[← Back to index](README.md#day-4) · [Runnable Day 4 script](internal/scripts/day-4.tcl)
+[← Back to index](README.md#day-4) · [Assignment ideas](ideas.md#day-4) · [Runnable Day 4 script](internal/scripts/day-4.tcl)
 
 **Kapil’s practice · reviewed 4 October 2026 · Tcl 8.6.18**
 
@@ -515,11 +515,13 @@ expected floating-point number but got "-increasing"
 12 15 18 20 12 18
 ```
 
-Your `caplist` omits the question’s `10`, so it has eight entries. `llength $caplist` counts every entry, including repeated values; this does not yet answer the distinct-value question. `llength caplist` counts the literal one-word name. The second list is a separate experiment rather than the question’s data.
+Your `caplist` omits the question’s `10`, so it has eight entries. `llength $caplist` counts every entry, including repeated values; this does not yet answer the distinct-value question. `llength caplist` counts the literal one-word name. The second list matches the input of **Assignment 18**, rather than Assignment 17; it is useful reversal practice but needs a lookup in the returned reversed list at the requested position.
 
 `lreverse` reverses element order without removing duplicates and returns the reversed list. `lindex $caplist1 2` correctly reads its third element. `set lreverse $caplist1` creates a variable named `lreverse`; it does not call the command of that name. Correct the input data before continuing the assignment. No completed numeric answer is recorded here.
 
 Related lessons: [Sort text, integers, and real numbers](#sort-text-integers-and-real-numbers), [Repeat elements and count a list](#repeat-elements-and-count-a-list), and [Read nested indices with lindex](#read-nested-indices-with-lindex).
+
+Detailed approaches: [Q17 · unique values](ideas.md#assignment-17-unique-capacitance-values) and [Q18 · reversal and positions](ideas.md#assignment-18-second-position-after-reversing-a-list). No new final answer is supplied for either assignment.
 
 [← Back to index](README.md#day-4) · [Day contents](#contents)
 
@@ -1033,11 +1035,11 @@ The console displays command return values automatically. A saved script needs `
 
 ## Assignment progress and next lesson
 
-You report that Day 4 lessons are complete through **regsub**, with the assignments still remaining. The [Assignment 17 preliminary review](#assignment-17-preliminary-capacitance-list-practice) preserves your new list experiments and identifies the missing input value and the difference between entry count and unique count. There is no completed answer for Assignment 17 and no new attempt at 18–22 in this session.
+You report that Day 4 lessons are complete through **regsub**, with the assignments still remaining. The [Assignment 17 preliminary review](#assignment-17-preliminary-capacitance-list-practice) preserves your list experiments and identifies the missing input value and the difference between entry count and unique count. Its second list also matches Assignment 18’s reversal input. Neither has a completed final response recorded, and 19–22 remain unattempted in these transcripts.
 
 No Day 4 assignment response was filled or submitted during this update. The existing [Day 1](day-1.md), [Day 2](day-2.md), and [Day 3](day-3.md) pages retain the 16 earlier assignment reviews. The employee IDs and records above remain practice examples.
 
-The next study step is **Assignments 17–22**; Day 5 then starts arrays. Before the assignments, revisit these specific points from your sessions:
+The root-level [Day 4 assignment ideas](ideas.md#day-4) now cover all six questions, with their original prompts and detailed approaches. Your new practice continues in [Day 5 arrays](day-5.md) and [Day 6 conditionals and loops](day-6.md). Before implementing the remaining assignments, revisit these points from your sessions:
 
 - Count the value with `llength $list_nest`; its four outer elements differ from the three elements in its first child.
 - Use `lappend lista ...` and `lset lista ...` with destination names.
