@@ -1,5 +1,11 @@
 # Tcl/Tk practice
 
+**Run Attempt 2** from PowerShell at the repository root. Change the day number to run another file.
+
+```powershell
+.\tclsh.cmd ".\Attempt 2\day-9.tcl"
+```
+
 Each day keeps its lesson notes, code examples, and review together. Questions link to the lesson they use; **← Back to index** links return here. The root-level [ideas.md](ideas.md) collects the remaining assignment approaches, with links back to those explanations.
 
 Your [Tcl Q&A](qna.md) collects the logic questions from our discussions, with corrected examples on comments, namespace variables, procedures, substitution, and `expr`.
