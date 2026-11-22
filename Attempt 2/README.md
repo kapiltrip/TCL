@@ -29,3 +29,14 @@
 | Return vs mutate | `string *`, `linsert`, `lreplace`, `lassign`, `lsort` leave the original variable untouched | `set lst [linsert $lst 1 12]` |
 | Scope keywords | Inside `proc`, vars are local unless linked with `global`, `variable`, or `upvar` | `variable arr` inside every namespace `proc` |
 | Expansion `{*}` | Unpacks a list into separate command arguments | `file join {*}$parts`, `file delete {*}[glob -nocomplain *.txt]` |
+
+## Core Tcl Terms
+
+| Term | Definition | Deep dive |
+| --- | --- | --- |
+| Single-pass substitution | `$`, `[...]`, `\` run left-to-right once; substituted text is never re-scanned | [Day 1](revision/day-1.md#definitions) |
+| Double substitution | Unbraced `expr`/`while` parses once in Tcl and again inside `expr` | [Day 3](revision/day-3.md#definitions) |
+| Canonical list | Whitespace-delimited sequence with `{}`/`\` quoting preserving spaces and nesting | [Day 4](revision/day-4.md#definitions) |
+| Associative array | Hash-table collection of variables (`arr(key)`), passed by name or `array get` | [Day 5](revision/day-5.md#definitions) |
+| Call frame & `upvar` | Per-`proc` local variable table; `upvar` aliases a local name to another frame's slot | [Day 7](revision/day-7.md#definitions) |
+| Channel & EOF | Buffered OS I/O stream from `open`; `gets` returns `0` on blank lines, `-1` at EOF | [Day 9](revision/day-9.md#definitions) |
