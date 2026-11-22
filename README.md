@@ -1,6 +1,6 @@
 # Tcl/Tk practice
 
-**Run Attempt 2** from PowerShell at the repository root. Change the day number to run another file.
+**Run Attempt 2** from PowerShell at the repository root. Change the day number to run another file. See the [Attempt 2 index & Day 1–9 revision sheets](Attempt%202/README.md).
 
 ```powershell
 .\tclsh.cmd ".\Attempt 2\day-9.tcl"

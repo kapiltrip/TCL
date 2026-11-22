@@ -1,0 +1,6 @@
+Path 1: Setup violation, Slack = -0.12ns
+Path 2: Met timing, Slack = 0.05ns
+Path 3: Hold violation, Slack = -0.08ns
+Path 4: Met timing, Slack = 0.10ns
+Path 5: Setup violation, Slack = -0.20nsnew data added by me is this , in the timing im appending 
+new data added by me is this , in the timing im appending new data added by me is this , in the timing im appending 
